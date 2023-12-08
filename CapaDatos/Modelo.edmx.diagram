@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ee57749df61f49869bd867a7395ba09e" Name="Diagram1">
+      <Diagram DiagramId="ee57749df61f49869bd867a7395ba09e" Name="Diagram1" ZoomLevel="142">
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.CONTROL" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.CONTROL_PERMISO" Width="1.5" PointX="12.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.EMPLEADO" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
@@ -31,6 +31,46 @@
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULO_PERMISOUSUARIO1" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULO_PERMISOUSUARIOASIGNA" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_USUARIOROL" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.PRODUCTO" Width="1.5" PointX="24.75" PointY="4.5" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.PROVEEDOR" Width="1.5" PointX="22.5" PointY="1.75" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.MARCA" Width="1.5" PointX="22.5" PointY="4.875" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.ORDENCOMPRA" Width="1.5" PointX="27.625" PointY="2.5" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.VENTA" Width="1.5" PointX="24.625" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.VENTA_PARTIDA" Width="1.5" PointX="26.625" PointY="12.75" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.CLIENTE" Width="1.5" PointX="20.375" PointY="10" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.MOVIMIENTO" Width="1.5" PointX="22.75" PointY="8.125" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.IMPUESTO" Width="1.5" PointX="29.375" PointY="9.75" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.PRODUCTO_IMPUESTO" Width="1.5" PointX="26.875" PointY="9.75" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PROVEEDORPERSONA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.MARCAPROVEEDOR" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PRODUCTOMARCA" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDA" Width="1.5" PointX="27.625" PointY="6.25" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.CLIENTEPERSONA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.MOVIMIENTOPRODUCTO" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.TIPO_MOVIMIENTO" Width="1.5" PointX="24.875" PointY="8.125" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.MOVIMIENTOTIPO_MOVIMIENTO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.MOVIMIENTOUSUARIO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PRODUCTO_IMPUESTOIMPUESTO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PRODUCTO_IMPUESTOPRODUCTO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.ORDENCOMPRAUSUARIO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PROVEEDORORDENCOMPRA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.ORDENCOMPRAMARCA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDAPRODUCTO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDAORDENCOMPRA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PRODUCTOESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.MARCAESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.PROVEEDORESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.ORDENCOMPRAESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTAUSUARIO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTAESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTA_PARTIDAPRODUCTO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTA_PARTIDAVENTA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTACLIENTE" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.METODOPAGO" Width="1.5" PointX="21.25" PointY="12.875" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTAMETODOPAGO" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.FORMAPAGO" Width="1.5" PointX="19" PointY="12.875" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.VENTAFORMAPAGO" />
+        <EntityTypeShape EntityType="DB_BOUTIQUEModel.VARIABLEGLOBAL" Width="1.5" PointX="9.625" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

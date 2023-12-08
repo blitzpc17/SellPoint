@@ -16,6 +16,21 @@
     <EntitySet Name="PUESTO" EntityType="DB_BOUTIQUEModel.Store.PUESTO" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ROL" EntityType="DB_BOUTIQUEModel.Store.ROL" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="USUARIO" EntityType="DB_BOUTIQUEModel.Store.USUARIO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PRODUCTO" EntityType="DB_BOUTIQUEModel.Store.PRODUCTO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PROVEEDOR" EntityType="DB_BOUTIQUEModel.Store.PROVEEDOR" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MARCA" EntityType="DB_BOUTIQUEModel.Store.MARCA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ORDENCOMPRA" EntityType="DB_BOUTIQUEModel.Store.ORDENCOMPRA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VENTA" EntityType="DB_BOUTIQUEModel.Store.VENTA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VENTA_PARTIDA" EntityType="DB_BOUTIQUEModel.Store.VENTA_PARTIDA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CLIENTE" EntityType="DB_BOUTIQUEModel.Store.CLIENTE" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MOVIMIENTO" EntityType="DB_BOUTIQUEModel.Store.MOVIMIENTO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IMPUESTO" EntityType="DB_BOUTIQUEModel.Store.IMPUESTO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PRODUCTO_IMPUESTO" EntityType="DB_BOUTIQUEModel.Store.PRODUCTO_IMPUESTO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ORDENCOMPRA_PARTIDA" EntityType="DB_BOUTIQUEModel.Store.ORDENCOMPRA_PARTIDA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TIPO_MOVIMIENTO" EntityType="DB_BOUTIQUEModel.Store.TIPO_MOVIMIENTO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="METODOPAGO" EntityType="DB_BOUTIQUEModel.Store.METODOPAGO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FORMAPAGO" EntityType="DB_BOUTIQUEModel.Store.FORMAPAGO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VARIABLEGLOBAL" EntityType="DB_BOUTIQUEModel.Store.VARIABLEGLOBAL" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_CONTROL_PERMISOCONTROL" Association="DB_BOUTIQUEModel.Store.FK_CONTROL_PERMISOCONTROL">
       <End Role="CONTROL" EntitySet="CONTROL" />
       <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
@@ -79,6 +94,106 @@
     <AssociationSet Name="FK_USUARIOROL" Association="DB_BOUTIQUEModel.Store.FK_USUARIOROL">
       <End Role="ROL" EntitySet="ROL" />
       <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="PROVEEDORPERSONA" Association="DB_BOUTIQUEModel.Store.PROVEEDORPERSONA">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="PERSONA" EntitySet="PERSONA" />
+    </AssociationSet>
+    <AssociationSet Name="MARCAPROVEEDOR" Association="DB_BOUTIQUEModel.Store.MARCAPROVEEDOR">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="PRODUCTOMARCA" Association="DB_BOUTIQUEModel.Store.PRODUCTOMARCA">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="MARCA" EntitySet="MARCA" />
+    </AssociationSet>
+    <AssociationSet Name="CLIENTEPERSONA" Association="DB_BOUTIQUEModel.Store.CLIENTEPERSONA">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="PERSONA" EntitySet="PERSONA" />
+    </AssociationSet>
+    <AssociationSet Name="MOVIMIENTOPRODUCTO" Association="DB_BOUTIQUEModel.Store.MOVIMIENTOPRODUCTO">
+      <End Role="MOVIMIENTO" EntitySet="MOVIMIENTO" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="MOVIMIENTOTIPO_MOVIMIENTO" Association="DB_BOUTIQUEModel.Store.MOVIMIENTOTIPO_MOVIMIENTO">
+      <End Role="MOVIMIENTO" EntitySet="MOVIMIENTO" />
+      <End Role="TIPO_MOVIMIENTO" EntitySet="TIPO_MOVIMIENTO" />
+    </AssociationSet>
+    <AssociationSet Name="MOVIMIENTOUSUARIO" Association="DB_BOUTIQUEModel.Store.MOVIMIENTOUSUARIO">
+      <End Role="MOVIMIENTO" EntitySet="MOVIMIENTO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="PRODUCTO_IMPUESTOIMPUESTO" Association="DB_BOUTIQUEModel.Store.PRODUCTO_IMPUESTOIMPUESTO">
+      <End Role="PRODUCTO_IMPUESTO" EntitySet="PRODUCTO_IMPUESTO" />
+      <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+    </AssociationSet>
+    <AssociationSet Name="PRODUCTO_IMPUESTOPRODUCTO" Association="DB_BOUTIQUEModel.Store.PRODUCTO_IMPUESTOPRODUCTO">
+      <End Role="PRODUCTO_IMPUESTO" EntitySet="PRODUCTO_IMPUESTO" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENCOMPRAUSUARIO" Association="DB_BOUTIQUEModel.Store.ORDENCOMPRAUSUARIO">
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="PROVEEDORORDENCOMPRA" Association="DB_BOUTIQUEModel.Store.PROVEEDORORDENCOMPRA">
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENCOMPRAMARCA" Association="DB_BOUTIQUEModel.Store.ORDENCOMPRAMARCA">
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+      <End Role="MARCA" EntitySet="MARCA" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENCOMPRA_PARTIDAPRODUCTO" Association="DB_BOUTIQUEModel.Store.ORDENCOMPRA_PARTIDAPRODUCTO">
+      <End Role="ORDENCOMPRA_PARTIDA" EntitySet="ORDENCOMPRA_PARTIDA" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENCOMPRA_PARTIDAORDENCOMPRA" Association="DB_BOUTIQUEModel.Store.ORDENCOMPRA_PARTIDAORDENCOMPRA">
+      <End Role="ORDENCOMPRA_PARTIDA" EntitySet="ORDENCOMPRA_PARTIDA" />
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+    </AssociationSet>
+    <AssociationSet Name="PRODUCTOESTADO" Association="DB_BOUTIQUEModel.Store.PRODUCTOESTADO">
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="MARCAESTADO" Association="DB_BOUTIQUEModel.Store.MARCAESTADO">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="PROVEEDORESTADO" Association="DB_BOUTIQUEModel.Store.PROVEEDORESTADO">
+      <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="ORDENCOMPRAESTADO" Association="DB_BOUTIQUEModel.Store.ORDENCOMPRAESTADO">
+      <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="VENTAUSUARIO" Association="DB_BOUTIQUEModel.Store.VENTAUSUARIO">
+      <End Role="VENTA" EntitySet="VENTA" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="VENTAESTADO" Association="DB_BOUTIQUEModel.Store.VENTAESTADO">
+      <End Role="VENTA" EntitySet="VENTA" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="VENTA_PARTIDAPRODUCTO" Association="DB_BOUTIQUEModel.Store.VENTA_PARTIDAPRODUCTO">
+      <End Role="VENTA_PARTIDA" EntitySet="VENTA_PARTIDA" />
+      <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+    </AssociationSet>
+    <AssociationSet Name="VENTA_PARTIDAVENTA" Association="DB_BOUTIQUEModel.Store.VENTA_PARTIDAVENTA">
+      <End Role="VENTA_PARTIDA" EntitySet="VENTA_PARTIDA" />
+      <End Role="VENTA" EntitySet="VENTA" />
+    </AssociationSet>
+    <AssociationSet Name="VENTACLIENTE" Association="DB_BOUTIQUEModel.Store.VENTACLIENTE">
+      <End Role="VENTA" EntitySet="VENTA" />
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+    </AssociationSet>
+    <AssociationSet Name="VENTAMETODOPAGO" Association="DB_BOUTIQUEModel.Store.VENTAMETODOPAGO">
+      <End Role="VENTA" EntitySet="VENTA" />
+      <End Role="METODOPAGO" EntitySet="METODOPAGO" />
+    </AssociationSet>
+    <AssociationSet Name="VENTAFORMAPAGO" Association="DB_BOUTIQUEModel.Store.VENTAFORMAPAGO">
+      <End Role="VENTA" EntitySet="VENTA" />
+      <End Role="FORMAPAGO" EntitySet="FORMAPAGO" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="CONTROL">
@@ -153,7 +268,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombres" Type="nvarchar" Nullable="false" MaxLength="65" />
     <Property Name="ApellidoPaterno" Type="nvarchar" Nullable="false" MaxLength="65" />
-    <Property Name="ApellidoMATERNO" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="ApellidoMaterno" Type="nvarchar" Nullable="false" MaxLength="65" />
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="PUESTO">
@@ -181,6 +296,175 @@
     <Property Name="EMPLEADOId" Type="int" Nullable="false" />
     <Property Name="ROLId" Type="int" Nullable="false" />
     <Property Name="ESTADOId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRODUCTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="380" />
+    <Property Name="PrecioCompra" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="PrecioVenta" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="CodigoBarras" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="MARCAId" Type="int" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PROVEEDOR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RazonSocial" Type="nchar" Nullable="false" MaxLength="380" />
+    <Property Name="Clave" Type="nchar" Nullable="false" MaxLength="5" />
+    <Property Name="PERSONAIdRepresentante" Type="int" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PROVEEDORId" Type="int" Nullable="false" />
+    <Property Name="FechaRegistro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDENCOMPRA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaEmision" Type="datetime" Nullable="false" />
+    <Property Name="USUARIOIdGenero" Type="int" Nullable="false" />
+    <Property Name="PROVEEDORId" Type="int" Nullable="false" />
+    <Property Name="MARCAId" Type="int" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Impuestos" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Total" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VENTA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NumeroReferencia" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+    <Property Name="CLIENTEId" Type="int" Nullable="false" />
+    <Property Name="NombreCliente0" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="METODOPAGOId" Type="int" Nullable="false" />
+    <Property Name="FORMAPAGOId" Type="int" Nullable="false" />
+    <Property Name="FechaEmision" Type="datetime" Nullable="false" />
+    <Property Name="USUARIOIdGenero" Type="int" Nullable="false" />
+    <Property Name="Subtotal" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Impuestos" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Total" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+  </EntityType>
+  <EntityType Name="VENTA_PARTIDA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCTOId" Type="int" Nullable="false" />
+    <Property Name="VENTAId" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Precio" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Impuestos" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Subtotal" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Total" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CLIENTE">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Clave" Type="nchar" Nullable="false" MaxLength="5" />
+    <Property Name="PERSONAId" Type="int" Nullable="false" />
+    <Property Name="RFC" Type="nvarchar" Nullable="false" MaxLength="13" />
+    <Property Name="RazonSocial" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MOVIMIENTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="PRODUCTOId" Type="int" Nullable="false" />
+    <Property Name="Cantidad" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="TIPO_MOVIMIENTOId" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="FolioDocumento" Type="nchar" Nullable="false" MaxLength="13" />
+    <Property Name="IdDocumento" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Entidad" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="USUARIOIdRealizo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="IMPUESTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="Porcentaje" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+  </EntityType>
+  <EntityType Name="PRODUCTO_IMPUESTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCTOId" Type="int" Nullable="false" />
+    <Property Name="IMPUESTOId" Type="int" Nullable="false" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDENCOMPRA_PARTIDA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRODUCTOId" Type="int" Nullable="false" />
+    <Property Name="ORDENCOMPRAId" Type="int" Nullable="false" />
+    <Property Name="Precio" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Impuesto" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Cantidad" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Monto" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Total" Type="decimal" Nullable="false" Precision="18" Scale="7" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_MOVIMIENTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="Tipo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="METODOPAGO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="FORMAPAGO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="VARIABLEGLOBAL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="Tipo" Type="nchar" Nullable="false" MaxLength="15" />
+    <Property Name="Valor" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="FK_CONTROL_PERMISOCONTROL">
     <End Role="CONTROL" Type="DB_BOUTIQUEModel.Store.CONTROL" Multiplicity="1" />
@@ -374,6 +658,306 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="PROVEEDORPERSONA">
+    <End Role="PROVEEDOR" Type="DB_BOUTIQUEModel.Store.PROVEEDOR" Multiplicity="*" />
+    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PROVEEDOR">
+        <PropertyRef Name="PERSONAIdRepresentante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MARCAPROVEEDOR">
+    <End Role="MARCA" Type="DB_BOUTIQUEModel.Store.MARCA" Multiplicity="*" />
+    <End Role="PROVEEDOR" Type="DB_BOUTIQUEModel.Store.PROVEEDOR" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MARCA">
+        <PropertyRef Name="PROVEEDORId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRODUCTOMARCA">
+    <End Role="PRODUCTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO" Multiplicity="*" />
+    <End Role="MARCA" Type="DB_BOUTIQUEModel.Store.MARCA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PRODUCTO">
+        <PropertyRef Name="MARCAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CLIENTEPERSONA">
+    <End Role="CLIENTE" Type="DB_BOUTIQUEModel.Store.CLIENTE" Multiplicity="*" />
+    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="PERSONAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MOVIMIENTOPRODUCTO">
+    <End Role="MOVIMIENTO" Type="DB_BOUTIQUEModel.Store.MOVIMIENTO" Multiplicity="*" />
+    <End Role="PRODUCTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MOVIMIENTO">
+        <PropertyRef Name="PRODUCTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MOVIMIENTOTIPO_MOVIMIENTO">
+    <End Role="MOVIMIENTO" Type="DB_BOUTIQUEModel.Store.MOVIMIENTO" Multiplicity="*" />
+    <End Role="TIPO_MOVIMIENTO" Type="DB_BOUTIQUEModel.Store.TIPO_MOVIMIENTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_MOVIMIENTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MOVIMIENTO">
+        <PropertyRef Name="TIPO_MOVIMIENTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MOVIMIENTOUSUARIO">
+    <End Role="MOVIMIENTO" Type="DB_BOUTIQUEModel.Store.MOVIMIENTO" Multiplicity="*" />
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MOVIMIENTO">
+        <PropertyRef Name="USUARIOIdRealizo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRODUCTO_IMPUESTOIMPUESTO">
+    <End Role="PRODUCTO_IMPUESTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO_IMPUESTO" Multiplicity="*" />
+    <End Role="IMPUESTO" Type="DB_BOUTIQUEModel.Store.IMPUESTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="IMPUESTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PRODUCTO_IMPUESTO">
+        <PropertyRef Name="IMPUESTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRODUCTO_IMPUESTOPRODUCTO">
+    <End Role="PRODUCTO_IMPUESTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO_IMPUESTO" Multiplicity="*" />
+    <End Role="PRODUCTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PRODUCTO_IMPUESTO">
+        <PropertyRef Name="PRODUCTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENCOMPRAUSUARIO">
+    <End Role="ORDENCOMPRA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA" Multiplicity="*" />
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA">
+        <PropertyRef Name="USUARIOIdGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROVEEDORORDENCOMPRA">
+    <End Role="ORDENCOMPRA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA" Multiplicity="*" />
+    <End Role="PROVEEDOR" Type="DB_BOUTIQUEModel.Store.PROVEEDOR" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PROVEEDOR">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA">
+        <PropertyRef Name="PROVEEDORId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENCOMPRAMARCA">
+    <End Role="ORDENCOMPRA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA" Multiplicity="*" />
+    <End Role="MARCA" Type="DB_BOUTIQUEModel.Store.MARCA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA">
+        <PropertyRef Name="MARCAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENCOMPRA_PARTIDAPRODUCTO">
+    <End Role="ORDENCOMPRA_PARTIDA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA_PARTIDA" Multiplicity="*" />
+    <End Role="PRODUCTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA_PARTIDA">
+        <PropertyRef Name="PRODUCTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENCOMPRA_PARTIDAORDENCOMPRA">
+    <End Role="ORDENCOMPRA_PARTIDA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA_PARTIDA" Multiplicity="*" />
+    <End Role="ORDENCOMPRA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ORDENCOMPRA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA_PARTIDA">
+        <PropertyRef Name="ORDENCOMPRAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRODUCTOESTADO">
+    <End Role="PRODUCTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PRODUCTO">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MARCAESTADO">
+    <End Role="MARCA" Type="DB_BOUTIQUEModel.Store.MARCA" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MARCA">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PROVEEDORESTADO">
+    <End Role="PROVEEDOR" Type="DB_BOUTIQUEModel.Store.PROVEEDOR" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PROVEEDOR">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ORDENCOMPRAESTADO">
+    <End Role="ORDENCOMPRA" Type="DB_BOUTIQUEModel.Store.ORDENCOMPRA" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ORDENCOMPRA">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTAUSUARIO">
+    <End Role="VENTA" Type="DB_BOUTIQUEModel.Store.VENTA" Multiplicity="*" />
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="USUARIOIdGenero" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTAESTADO">
+    <End Role="VENTA" Type="DB_BOUTIQUEModel.Store.VENTA" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTA_PARTIDAPRODUCTO">
+    <End Role="VENTA_PARTIDA" Type="DB_BOUTIQUEModel.Store.VENTA_PARTIDA" Multiplicity="*" />
+    <End Role="PRODUCTO" Type="DB_BOUTIQUEModel.Store.PRODUCTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PRODUCTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA_PARTIDA">
+        <PropertyRef Name="PRODUCTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTA_PARTIDAVENTA">
+    <End Role="VENTA_PARTIDA" Type="DB_BOUTIQUEModel.Store.VENTA_PARTIDA" Multiplicity="*" />
+    <End Role="VENTA" Type="DB_BOUTIQUEModel.Store.VENTA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="VENTA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA_PARTIDA">
+        <PropertyRef Name="VENTAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTACLIENTE">
+    <End Role="VENTA" Type="DB_BOUTIQUEModel.Store.VENTA" Multiplicity="*" />
+    <End Role="CLIENTE" Type="DB_BOUTIQUEModel.Store.CLIENTE" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENTE">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="CLIENTEId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTAMETODOPAGO">
+    <End Role="VENTA" Type="DB_BOUTIQUEModel.Store.VENTA" Multiplicity="*" />
+    <End Role="METODOPAGO" Type="DB_BOUTIQUEModel.Store.METODOPAGO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="METODOPAGO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="METODOPAGOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="VENTAFORMAPAGO">
+    <End Role="VENTA" Type="DB_BOUTIQUEModel.Store.VENTA" Multiplicity="*" />
+    <End Role="FORMAPAGO" Type="DB_BOUTIQUEModel.Store.FORMAPAGO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="FORMAPAGO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VENTA">
+        <PropertyRef Name="FORMAPAGOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -470,7 +1054,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombres" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ApellidoPaterno" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ApellidoMATERNO" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOPERSONA" FromRole="PERSONA" ToRole="EMPLEADO" />
         </EntityType>
@@ -778,7 +1362,616 @@
             <End Role="ROL" EntitySet="ROL" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
+          <EntitySet Name="PRODUCTO" EntityType="DB_BOUTIQUEModel.PRODUCTO" />
+          <EntitySet Name="PROVEEDOR" EntityType="DB_BOUTIQUEModel.PROVEEDOR" />
+          <EntitySet Name="MARCA" EntityType="DB_BOUTIQUEModel.MARCA" />
+          <EntitySet Name="ORDENCOMPRA" EntityType="DB_BOUTIQUEModel.ORDENCOMPRA" />
+          <EntitySet Name="VENTA" EntityType="DB_BOUTIQUEModel.VENTA" />
+          <EntitySet Name="VENTA_PARTIDA" EntityType="DB_BOUTIQUEModel.VENTA_PARTIDA" />
+          <EntitySet Name="CLIENTE" EntityType="DB_BOUTIQUEModel.CLIENTE" />
+          <EntitySet Name="MOVIMIENTO" EntityType="DB_BOUTIQUEModel.MOVIMIENTO" />
+          <EntitySet Name="IMPUESTO" EntityType="DB_BOUTIQUEModel.IMPUESTO" />
+          <EntitySet Name="PRODUCTO_IMPUESTO" EntityType="DB_BOUTIQUEModel.PRODUCTO_IMPUESTO" />
+          <AssociationSet Name="PROVEEDORPERSONA" Association="DB_BOUTIQUEModel.PROVEEDORPERSONA">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="MARCAPROVEEDOR" Association="DB_BOUTIQUEModel.MARCAPROVEEDOR">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTOMARCA" Association="DB_BOUTIQUEModel.PRODUCTOMARCA">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="MARCA" EntitySet="MARCA" />
+          </AssociationSet>
+          <EntitySet Name="ORDENCOMPRA_PARTIDA" EntityType="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDA" />
+          <AssociationSet Name="CLIENTEPERSONA" Association="DB_BOUTIQUEModel.CLIENTEPERSONA">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="MOVIMIENTOPRODUCTO" Association="DB_BOUTIQUEModel.MOVIMIENTOPRODUCTO">
+            <End Role="MOVIMIENTO" EntitySet="MOVIMIENTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <EntitySet Name="TIPO_MOVIMIENTO" EntityType="DB_BOUTIQUEModel.TIPO_MOVIMIENTO" />
+          <AssociationSet Name="MOVIMIENTOTIPO_MOVIMIENTO" Association="DB_BOUTIQUEModel.MOVIMIENTOTIPO_MOVIMIENTO">
+            <End Role="MOVIMIENTO" EntitySet="MOVIMIENTO" />
+            <End Role="TIPO_MOVIMIENTO" EntitySet="TIPO_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="MOVIMIENTOUSUARIO" Association="DB_BOUTIQUEModel.MOVIMIENTOUSUARIO">
+            <End Role="MOVIMIENTO" EntitySet="MOVIMIENTO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_IMPUESTOIMPUESTO" Association="DB_BOUTIQUEModel.PRODUCTO_IMPUESTOIMPUESTO">
+            <End Role="PRODUCTO_IMPUESTO" EntitySet="PRODUCTO_IMPUESTO" />
+            <End Role="IMPUESTO" EntitySet="IMPUESTO" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTO_IMPUESTOPRODUCTO" Association="DB_BOUTIQUEModel.PRODUCTO_IMPUESTOPRODUCTO">
+            <End Role="PRODUCTO_IMPUESTO" EntitySet="PRODUCTO_IMPUESTO" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENCOMPRAUSUARIO" Association="DB_BOUTIQUEModel.ORDENCOMPRAUSUARIO">
+            <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="PROVEEDORORDENCOMPRA" Association="DB_BOUTIQUEModel.PROVEEDORORDENCOMPRA">
+            <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENCOMPRAMARCA" Association="DB_BOUTIQUEModel.ORDENCOMPRAMARCA">
+            <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+            <End Role="MARCA" EntitySet="MARCA" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENCOMPRA_PARTIDAPRODUCTO" Association="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDAPRODUCTO">
+            <End Role="ORDENCOMPRA_PARTIDA" EntitySet="ORDENCOMPRA_PARTIDA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENCOMPRA_PARTIDAORDENCOMPRA" Association="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDAORDENCOMPRA">
+            <End Role="ORDENCOMPRA_PARTIDA" EntitySet="ORDENCOMPRA_PARTIDA" />
+            <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+          </AssociationSet>
+          <AssociationSet Name="PRODUCTOESTADO" Association="DB_BOUTIQUEModel.PRODUCTOESTADO">
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="MARCAESTADO" Association="DB_BOUTIQUEModel.MARCAESTADO">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="PROVEEDORESTADO" Association="DB_BOUTIQUEModel.PROVEEDORESTADO">
+            <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="ORDENCOMPRAESTADO" Association="DB_BOUTIQUEModel.ORDENCOMPRAESTADO">
+            <End Role="ORDENCOMPRA" EntitySet="ORDENCOMPRA" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="VENTAUSUARIO" Association="DB_BOUTIQUEModel.VENTAUSUARIO">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="VENTAESTADO" Association="DB_BOUTIQUEModel.VENTAESTADO">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="VENTA_PARTIDAPRODUCTO" Association="DB_BOUTIQUEModel.VENTA_PARTIDAPRODUCTO">
+            <End Role="VENTA_PARTIDA" EntitySet="VENTA_PARTIDA" />
+            <End Role="PRODUCTO" EntitySet="PRODUCTO" />
+          </AssociationSet>
+          <AssociationSet Name="VENTA_PARTIDAVENTA" Association="DB_BOUTIQUEModel.VENTA_PARTIDAVENTA">
+            <End Role="VENTA_PARTIDA" EntitySet="VENTA_PARTIDA" />
+            <End Role="VENTA" EntitySet="VENTA" />
+          </AssociationSet>
+          <AssociationSet Name="VENTACLIENTE" Association="DB_BOUTIQUEModel.VENTACLIENTE">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <EntitySet Name="METODOPAGO" EntityType="DB_BOUTIQUEModel.METODOPAGO" />
+          <AssociationSet Name="VENTAMETODOPAGO" Association="DB_BOUTIQUEModel.VENTAMETODOPAGO">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="METODOPAGO" EntitySet="METODOPAGO" />
+          </AssociationSet>
+          <EntitySet Name="FORMAPAGO" EntityType="DB_BOUTIQUEModel.FORMAPAGO" />
+          <AssociationSet Name="VENTAFORMAPAGO" Association="DB_BOUTIQUEModel.VENTAFORMAPAGO">
+            <End Role="VENTA" EntitySet="VENTA" />
+            <End Role="FORMAPAGO" EntitySet="FORMAPAGO" />
+          </AssociationSet>
+          <EntitySet Name="VARIABLEGLOBAL" EntityType="DB_BOUTIQUEModel.VARIABLEGLOBAL" />
         </EntityContainer>
+        <EntityType Name="PRODUCTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave" Type="String" Nullable="false" FixedLength="false" MaxLength="35" Unicode="true" />
+          <Property Name="Nombre" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="380" />
+          <Property Name="PrecioCompra" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="PrecioVenta" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="CodigoBarras" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="255" />
+          <NavigationProperty Name="MARCA" Relationship="DB_BOUTIQUEModel.PRODUCTOMARCA" FromRole="PRODUCTO" ToRole="MARCA" />
+          <Property Name="MARCAId" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.PRODUCTOESTADO" FromRole="PRODUCTO" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PROVEEDOR">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RazonSocial" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="380" />
+          <Property Name="Clave" Type="String" Nullable="false" FixedLength="true" MaxLength="5" Unicode="true" />
+          <NavigationProperty Name="PERSONA" Relationship="DB_BOUTIQUEModel.PROVEEDORPERSONA" FromRole="PROVEEDOR" ToRole="PERSONA" />
+          <Property Name="PERSONAIdRepresentante" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.PROVEEDORESTADO" FromRole="PROVEEDOR" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" />
+          <Property Name="Clave" Type="String" Nullable="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="DB_BOUTIQUEModel.MARCAPROVEEDOR" FromRole="MARCA" ToRole="PROVEEDOR" />
+          <Property Name="PROVEEDORId" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="String" Nullable="false" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.MARCAESTADO" FromRole="MARCA" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ORDENCOMPRA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaEmision" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="DB_BOUTIQUEModel.ORDENCOMPRAUSUARIO" FromRole="ORDENCOMPRA" ToRole="USUARIO" />
+          <Property Name="USUARIOIdGenero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PROVEEDOR" Relationship="DB_BOUTIQUEModel.PROVEEDORORDENCOMPRA" FromRole="ORDENCOMPRA" ToRole="PROVEEDOR" />
+          <Property Name="PROVEEDORId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MARCA" Relationship="DB_BOUTIQUEModel.ORDENCOMPRAMARCA" FromRole="ORDENCOMPRA" ToRole="MARCA" />
+          <Property Name="MARCAId" Type="Int32" Nullable="false" />
+          <Property Name="Subtotal" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Impuestos" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Precision="18" Scale="7" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.ORDENCOMPRAESTADO" FromRole="ORDENCOMPRA" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VENTA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumeroReferencia" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="13" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+          <Property Name="CLIENTEId" Type="Int32" Nullable="false" />
+          <Property Name="NombreCliente0" Type="String" Nullable="false" FixedLength="false" MaxLength="255" Unicode="true" />
+          <Property Name="METODOPAGOId" Type="Int32" Nullable="false" />
+          <Property Name="FORMAPAGOId" Type="Int32" Nullable="false" />
+          <Property Name="FechaEmision" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="USUARIO" Relationship="DB_BOUTIQUEModel.VENTAUSUARIO" FromRole="VENTA" ToRole="USUARIO" />
+          <Property Name="USUARIOIdGenero" Type="Int32" Nullable="false" />
+          <Property Name="Subtotal" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Impuestos" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.VENTAESTADO" FromRole="VENTA" ToRole="ESTADO" />
+          <NavigationProperty Name="CLIENTE" Relationship="DB_BOUTIQUEModel.VENTACLIENTE" FromRole="VENTA" ToRole="CLIENTE" />
+          <NavigationProperty Name="METODOPAGO" Relationship="DB_BOUTIQUEModel.VENTAMETODOPAGO" FromRole="VENTA" ToRole="METODOPAGO" />
+          <NavigationProperty Name="FORMAPAGO" Relationship="DB_BOUTIQUEModel.VENTAFORMAPAGO" FromRole="VENTA" ToRole="FORMAPAGO" />
+        </EntityType>
+        <EntityType Name="VENTA_PARTIDA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DB_BOUTIQUEModel.VENTA_PARTIDAPRODUCTO" FromRole="VENTA_PARTIDA" ToRole="PRODUCTO" />
+          <Property Name="PRODUCTOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="VENTA" Relationship="DB_BOUTIQUEModel.VENTA_PARTIDAVENTA" FromRole="VENTA_PARTIDA" ToRole="VENTA" />
+          <Property Name="VENTAId" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Impuestos" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Subtotal" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clave" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="5" />
+          <NavigationProperty Name="PERSONA" Relationship="DB_BOUTIQUEModel.CLIENTEPERSONA" FromRole="CLIENTE" ToRole="PERSONA" />
+          <Property Name="PERSONAId" Type="Int32" Nullable="false" />
+          <Property Name="RFC" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="13" />
+          <Property Name="RazonSocial" Type="String" Nullable="false" FixedLength="false" MaxLength="255" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DB_BOUTIQUEModel.MOVIMIENTOPRODUCTO" FromRole="MOVIMIENTO" ToRole="PRODUCTO" />
+          <Property Name="PRODUCTOId" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <NavigationProperty Name="TIPO_MOVIMIENTO" Relationship="DB_BOUTIQUEModel.MOVIMIENTOTIPO_MOVIMIENTO" FromRole="MOVIMIENTO" ToRole="TIPO_MOVIMIENTO" />
+          <Property Name="TIPO_MOVIMIENTOId" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="FolioDocumento" Type="String" Nullable="false" FixedLength="true" MaxLength="13" Unicode="true" />
+          <Property Name="IdDocumento" Type="String" Nullable="false" />
+          <Property Name="Entidad" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="65" />
+          <NavigationProperty Name="USUARIO" Relationship="DB_BOUTIQUEModel.MOVIMIENTOUSUARIO" FromRole="MOVIMIENTO" ToRole="USUARIO" />
+          <Property Name="USUARIOIdRealizo" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IMPUESTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="35" />
+          <Property Name="Porcentaje" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+        </EntityType>
+        <EntityType Name="PRODUCTO_IMPUESTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="IMPUESTO" Relationship="DB_BOUTIQUEModel.PRODUCTO_IMPUESTOIMPUESTO" FromRole="PRODUCTO_IMPUESTO" ToRole="IMPUESTO" />
+          <Property Name="PRODUCTOId" Type="Int32" Nullable="false" />
+          <Property Name="IMPUESTOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DB_BOUTIQUEModel.PRODUCTO_IMPUESTOPRODUCTO" FromRole="PRODUCTO_IMPUESTO" ToRole="PRODUCTO" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="PROVEEDORPERSONA">
+          <End Type="DB_BOUTIQUEModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PERSONA" Role="PERSONA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="PERSONAIdRepresentante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MARCAPROVEEDOR">
+          <End Type="DB_BOUTIQUEModel.MARCA" Role="MARCA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MARCA">
+              <PropertyRef Name="PROVEEDORId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTOMARCA">
+          <End Type="DB_BOUTIQUEModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.MARCA" Role="MARCA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="MARCAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ORDENCOMPRA_PARTIDA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="PRODUCTO" Relationship="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDAPRODUCTO" FromRole="ORDENCOMPRA_PARTIDA" ToRole="PRODUCTO" />
+          <Property Name="PRODUCTOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ORDENCOMPRA" Relationship="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDAORDENCOMPRA" FromRole="ORDENCOMPRA_PARTIDA" ToRole="ORDENCOMPRA" />
+          <Property Name="ORDENCOMPRAId" Type="Int32" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Impuesto" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Cantidad" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Monto" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Total" Type="Decimal" Nullable="false" Scale="7" Precision="18" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="CLIENTEPERSONA">
+          <End Type="DB_BOUTIQUEModel.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PERSONA" Role="PERSONA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="PERSONAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MOVIMIENTOPRODUCTO">
+          <End Type="DB_BOUTIQUEModel.MOVIMIENTO" Role="MOVIMIENTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MOVIMIENTO">
+              <PropertyRef Name="PRODUCTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="TIPO_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="35" />
+          <Property Name="Tipo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="MOVIMIENTOTIPO_MOVIMIENTO">
+          <End Type="DB_BOUTIQUEModel.MOVIMIENTO" Role="MOVIMIENTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.TIPO_MOVIMIENTO" Role="TIPO_MOVIMIENTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_MOVIMIENTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MOVIMIENTO">
+              <PropertyRef Name="TIPO_MOVIMIENTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MOVIMIENTOUSUARIO">
+          <End Type="DB_BOUTIQUEModel.MOVIMIENTO" Role="MOVIMIENTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MOVIMIENTO">
+              <PropertyRef Name="USUARIOIdRealizo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_IMPUESTOIMPUESTO">
+          <End Type="DB_BOUTIQUEModel.PRODUCTO_IMPUESTO" Role="PRODUCTO_IMPUESTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.IMPUESTO" Role="IMPUESTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="IMPUESTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PRODUCTO_IMPUESTO">
+              <PropertyRef Name="IMPUESTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTO_IMPUESTOPRODUCTO">
+          <End Type="DB_BOUTIQUEModel.PRODUCTO_IMPUESTO" Role="PRODUCTO_IMPUESTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PRODUCTO_IMPUESTO">
+              <PropertyRef Name="PRODUCTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENCOMPRAUSUARIO">
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA" Role="ORDENCOMPRA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDENCOMPRA">
+              <PropertyRef Name="USUARIOIdGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVEEDORORDENCOMPRA">
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA" Role="ORDENCOMPRA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PROVEEDOR">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDENCOMPRA">
+              <PropertyRef Name="PROVEEDORId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENCOMPRAMARCA">
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA" Role="ORDENCOMPRA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.MARCA" Role="MARCA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDENCOMPRA">
+              <PropertyRef Name="MARCAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENCOMPRA_PARTIDAPRODUCTO">
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDA" Role="ORDENCOMPRA_PARTIDA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDENCOMPRA_PARTIDA">
+              <PropertyRef Name="PRODUCTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENCOMPRA_PARTIDAORDENCOMPRA">
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDA" Role="ORDENCOMPRA_PARTIDA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA" Role="ORDENCOMPRA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ORDENCOMPRA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDENCOMPRA_PARTIDA">
+              <PropertyRef Name="ORDENCOMPRAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRODUCTOESTADO">
+          <End Type="DB_BOUTIQUEModel.PRODUCTO" Role="PRODUCTO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PRODUCTO">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MARCAESTADO">
+          <End Type="DB_BOUTIQUEModel.MARCA" Role="MARCA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MARCA">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROVEEDORESTADO">
+          <End Type="DB_BOUTIQUEModel.PROVEEDOR" Role="PROVEEDOR" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PROVEEDOR">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ORDENCOMPRAESTADO">
+          <End Type="DB_BOUTIQUEModel.ORDENCOMPRA" Role="ORDENCOMPRA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ORDENCOMPRA">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTAUSUARIO">
+          <End Type="DB_BOUTIQUEModel.VENTA" Role="VENTA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="USUARIOIdGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTAESTADO">
+          <End Type="DB_BOUTIQUEModel.VENTA" Role="VENTA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTA_PARTIDAPRODUCTO">
+          <End Type="DB_BOUTIQUEModel.VENTA_PARTIDA" Role="VENTA_PARTIDA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PRODUCTO" Role="PRODUCTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA_PARTIDA">
+              <PropertyRef Name="PRODUCTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTA_PARTIDAVENTA">
+          <End Type="DB_BOUTIQUEModel.VENTA_PARTIDA" Role="VENTA_PARTIDA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.VENTA" Role="VENTA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="VENTA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA_PARTIDA">
+              <PropertyRef Name="VENTAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VENTACLIENTE">
+          <End Type="DB_BOUTIQUEModel.VENTA" Role="VENTA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.CLIENTE" Role="CLIENTE" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="CLIENTEId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="METODOPAGO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="VENTAMETODOPAGO">
+          <End Type="DB_BOUTIQUEModel.VENTA" Role="VENTA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.METODOPAGO" Role="METODOPAGO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="METODOPAGO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="METODOPAGOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="FORMAPAGO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="35" />
+        </EntityType>
+        <Association Name="VENTAFORMAPAGO">
+          <End Type="DB_BOUTIQUEModel.VENTA" Role="VENTA" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.FORMAPAGO" Role="FORMAPAGO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="FORMAPAGO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="VENTA">
+              <PropertyRef Name="FORMAPAGOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VARIABLEGLOBAL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" FixedLength="false" MaxLength="65" Unicode="true" />
+          <Property Name="Tipo" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="15" />
+          <Property Name="Valor" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="Max" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -862,7 +2055,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombres" ColumnName="Nombres" />
           <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
-          <ScalarProperty Name="ApellidoMATERNO" ColumnName="ApellidoMATERNO" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
           <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -893,6 +2086,190 @@
           <ScalarProperty Name="EMPLEADOId" ColumnName="EMPLEADOId" />
           <ScalarProperty Name="ROLId" ColumnName="ROLId" />
           <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.PRODUCTO)">
+        <MappingFragment StoreEntitySet="PRODUCTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PrecioCompra" ColumnName="PrecioCompra" />
+          <ScalarProperty Name="PrecioVenta" ColumnName="PrecioVenta" />
+          <ScalarProperty Name="CodigoBarras" ColumnName="CodigoBarras" />
+          <ScalarProperty Name="MARCAId" ColumnName="MARCAId" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVEEDOR">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.PROVEEDOR)">
+        <MappingFragment StoreEntitySet="PROVEEDOR">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="PERSONAIdRepresentante" ColumnName="PERSONAIdRepresentante" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARCA">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.MARCA)">
+        <MappingFragment StoreEntitySet="MARCA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="PROVEEDORId" ColumnName="PROVEEDORId" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDENCOMPRA">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.ORDENCOMPRA)">
+        <MappingFragment StoreEntitySet="ORDENCOMPRA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="USUARIOIdGenero" ColumnName="USUARIOIdGenero" />
+          <ScalarProperty Name="PROVEEDORId" ColumnName="PROVEEDORId" />
+          <ScalarProperty Name="MARCAId" ColumnName="MARCAId" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENTA">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.VENTA)">
+        <MappingFragment StoreEntitySet="VENTA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NumeroReferencia" ColumnName="NumeroReferencia" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+          <ScalarProperty Name="CLIENTEId" ColumnName="CLIENTEId" />
+          <ScalarProperty Name="NombreCliente0" ColumnName="NombreCliente0" />
+          <ScalarProperty Name="METODOPAGOId" ColumnName="METODOPAGOId" />
+          <ScalarProperty Name="FORMAPAGOId" ColumnName="FORMAPAGOId" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="USUARIOIdGenero" ColumnName="USUARIOIdGenero" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VENTA_PARTIDA">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.VENTA_PARTIDA)">
+        <MappingFragment StoreEntitySet="VENTA_PARTIDA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PRODUCTOId" ColumnName="PRODUCTOId" />
+          <ScalarProperty Name="VENTAId" ColumnName="VENTAId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Impuestos" ColumnName="Impuestos" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CLIENTE">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.CLIENTE)">
+        <MappingFragment StoreEntitySet="CLIENTE">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Clave" ColumnName="Clave" />
+          <ScalarProperty Name="PERSONAId" ColumnName="PERSONAId" />
+          <ScalarProperty Name="RFC" ColumnName="RFC" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MOVIMIENTO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.MOVIMIENTO)">
+        <MappingFragment StoreEntitySet="MOVIMIENTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="PRODUCTOId" ColumnName="PRODUCTOId" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="TIPO_MOVIMIENTOId" ColumnName="TIPO_MOVIMIENTOId" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="FolioDocumento" ColumnName="FolioDocumento" />
+          <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+          <ScalarProperty Name="Entidad" ColumnName="Entidad" />
+          <ScalarProperty Name="USUARIOIdRealizo" ColumnName="USUARIOIdRealizo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IMPUESTO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.IMPUESTO)">
+        <MappingFragment StoreEntitySet="IMPUESTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Porcentaje" ColumnName="Porcentaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRODUCTO_IMPUESTO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.PRODUCTO_IMPUESTO)">
+        <MappingFragment StoreEntitySet="PRODUCTO_IMPUESTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PRODUCTOId" ColumnName="PRODUCTOId" />
+          <ScalarProperty Name="IMPUESTOId" ColumnName="IMPUESTOId" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDENCOMPRA_PARTIDA">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.ORDENCOMPRA_PARTIDA)">
+        <MappingFragment StoreEntitySet="ORDENCOMPRA_PARTIDA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PRODUCTOId" ColumnName="PRODUCTOId" />
+          <ScalarProperty Name="ORDENCOMPRAId" ColumnName="ORDENCOMPRAId" />
+          <ScalarProperty Name="Precio" ColumnName="Precio" />
+          <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_MOVIMIENTO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.TIPO_MOVIMIENTO)">
+        <MappingFragment StoreEntitySet="TIPO_MOVIMIENTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="METODOPAGO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.METODOPAGO)">
+        <MappingFragment StoreEntitySet="METODOPAGO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FORMAPAGO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.FORMAPAGO)">
+        <MappingFragment StoreEntitySet="FORMAPAGO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VARIABLEGLOBAL">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.VARIABLEGLOBAL)">
+        <MappingFragment StoreEntitySet="VARIABLEGLOBAL">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

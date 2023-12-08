@@ -10,15 +10,13 @@
 namespace CapaDatos
 {
     using System;
-    using System.Configuration;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
     public partial class DB_BOUTIQUEEntities : DbContext
     {
-        static string con = ConfigurationManager.ConnectionStrings["DB_BOUTIQUEEntities"].ConnectionString;
         public DB_BOUTIQUEEntities()
-            : base(con)
+            : base("name=DB_BOUTIQUEEntities")
         {
         }
     
@@ -37,5 +35,20 @@ namespace CapaDatos
         public DbSet<PUESTO> PUESTO { get; set; }
         public DbSet<ROL> ROL { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
+        public DbSet<PRODUCTO> PRODUCTO { get; set; }
+        public DbSet<PROVEEDOR> PROVEEDOR { get; set; }
+        public DbSet<MARCA> MARCA { get; set; }
+        public DbSet<ORDENCOMPRA> ORDENCOMPRA { get; set; }
+        public DbSet<VENTA> VENTA { get; set; }
+        public DbSet<VENTA_PARTIDA> VENTA_PARTIDA { get; set; }
+        public DbSet<CLIENTE> CLIENTE { get; set; }
+        public DbSet<MOVIMIENTO> MOVIMIENTO { get; set; }
+        public DbSet<IMPUESTO> IMPUESTO { get; set; }
+        public DbSet<PRODUCTO_IMPUESTO> PRODUCTO_IMPUESTO { get; set; }
+        public DbSet<ORDENCOMPRA_PARTIDA> ORDENCOMPRA_PARTIDA { get; set; }
+        public DbSet<TIPO_MOVIMIENTO> TIPO_MOVIMIENTO { get; set; }
+        public DbSet<METODOPAGO> METODOPAGO { get; set; }
+        public DbSet<FORMAPAGO> FORMAPAGO { get; set; }
+        public DbSet<VARIABLEGLOBAL> VARIABLEGLOBAL { get; set; }
     }
 }
