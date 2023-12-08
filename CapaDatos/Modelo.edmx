@@ -1,0 +1,921 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_BOUTIQUEModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DB_BOUTIQUEModelStoreContainer">
+    <EntitySet Name="CONTROL" EntityType="DB_BOUTIQUEModel.Store.CONTROL" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CONTROL_PERMISO" EntityType="DB_BOUTIQUEModel.Store.CONTROL_PERMISO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EMPLEADO" EntityType="DB_BOUTIQUEModel.Store.EMPLEADO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ESTADO" EntityType="DB_BOUTIQUEModel.Store.ESTADO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MODULO" EntityType="DB_BOUTIQUEModel.Store.MODULO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MODULO_PERMISO" EntityType="DB_BOUTIQUEModel.Store.MODULO_PERMISO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PERSONA" EntityType="DB_BOUTIQUEModel.Store.PERSONA" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PUESTO" EntityType="DB_BOUTIQUEModel.Store.PUESTO" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ROL" EntityType="DB_BOUTIQUEModel.Store.ROL" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="USUARIO" EntityType="DB_BOUTIQUEModel.Store.USUARIO" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_CONTROL_PERMISOCONTROL" Association="DB_BOUTIQUEModel.Store.FK_CONTROL_PERMISOCONTROL">
+      <End Role="CONTROL" EntitySet="CONTROL" />
+      <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTROLMODULO" Association="DB_BOUTIQUEModel.Store.FK_CONTROLMODULO">
+      <End Role="MODULO" EntitySet="MODULO" />
+      <End Role="CONTROL" EntitySet="CONTROL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTROLUSUARIO" Association="DB_BOUTIQUEModel.Store.FK_CONTROLUSUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CONTROL" EntitySet="CONTROL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTROL_PERMISOUSUARIO" Association="DB_BOUTIQUEModel.Store.FK_CONTROL_PERMISOUSUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CONTROL_PERMISOUSUARIOAUTORIZA" Association="DB_BOUTIQUEModel.Store.FK_CONTROL_PERMISOUSUARIOAUTORIZA">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLEADOESTADO" Association="DB_BOUTIQUEModel.Store.FK_EMPLEADOESTADO">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLEADOPERSONA" Association="DB_BOUTIQUEModel.Store.FK_EMPLEADOPERSONA">
+      <End Role="PERSONA" EntitySet="PERSONA" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EMPLEADOPUESTO" Association="DB_BOUTIQUEModel.Store.FK_EMPLEADOPUESTO">
+      <End Role="PUESTO" EntitySet="PUESTO" />
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOEMPLEADO" Association="DB_BOUTIQUEModel.Store.FK_USUARIOEMPLEADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOESTADO" Association="DB_BOUTIQUEModel.Store.FK_USUARIOESTADO">
+      <End Role="ESTADO" EntitySet="ESTADO" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULO_PERMISOMODULO" Association="DB_BOUTIQUEModel.Store.FK_MODULO_PERMISOMODULO">
+      <End Role="MODULO" EntitySet="MODULO" />
+      <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULOMODULOPADRE" Association="DB_BOUTIQUEModel.Store.FK_MODULOMODULOPADRE">
+      <End Role="MODULO" EntitySet="MODULO" />
+      <End Role="MODULO1" EntitySet="MODULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULO_PERMISOUSUARIO" Association="DB_BOUTIQUEModel.Store.FK_MODULO_PERMISOUSUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULO_PERMISOUSUARIO1" Association="DB_BOUTIQUEModel.Store.FK_MODULO_PERMISOUSUARIO1">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MODULO_PERMISOUSUARIOASIGNA" Association="DB_BOUTIQUEModel.Store.FK_MODULO_PERMISOUSUARIOASIGNA">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USUARIOROL" Association="DB_BOUTIQUEModel.Store.FK_USUARIOROL">
+      <End Role="ROL" EntitySet="ROL" />
+      <End Role="USUARIO" EntitySet="USUARIO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CONTROL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="MODULOId" Type="int" Nullable="false" />
+    <Property Name="USUARIOId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CONTROL_PERMISO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CONTROLId" Type="int" Nullable="false" />
+    <Property Name="USUARIOSolicitaId" Type="int" Nullable="false" />
+    <Property Name="USUARIOAutorizaId" Type="int" Nullable="false" />
+    <Property Name="Enabled" Type="bit" Nullable="false" />
+    <Property Name="ReadOnly" Type="bit" Nullable="false" />
+    <Property Name="Hide" Type="bit" Nullable="false" />
+    <Property Name="FechaAsignacion" Type="datetime" Nullable="false" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLEADO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rfc" Type="nvarchar" Nullable="false" MaxLength="13" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+    <Property Name="PUESTOId" Type="int" Nullable="false" />
+    <Property Name="PERSONAId" Type="int" Nullable="false" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ESTADO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="true" MaxLength="35" />
+    <Property Name="Proceso" Type="nvarchar" Nullable="false" MaxLength="65" />
+  </EntityType>
+  <EntityType Name="MODULO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Ruta" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Icono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MODULOPadreId" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="MODULO_PERMISO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaAsignacion" Type="datetime" Nullable="false" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
+    <Property Name="MODULOId" Type="int" Nullable="false" />
+    <Property Name="USUARIOSolicitaId" Type="int" Nullable="false" />
+    <Property Name="USUARIOAutorizaId" Type="int" Nullable="false" />
+    <Property Name="USUARIOAsignaId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSONA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombres" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="ApellidoPaterno" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="ApellidoMATERNO" Type="nvarchar" Nullable="false" MaxLength="65" />
+    <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PUESTO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" Nullable="true" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="ROL">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="true" MaxLength="35" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Alias" Type="nvarchar" Nullable="false" MaxLength="35" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="EMPLEADOId" Type="int" Nullable="false" />
+    <Property Name="ROLId" Type="int" Nullable="false" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_CONTROL_PERMISOCONTROL">
+    <End Role="CONTROL" Type="DB_BOUTIQUEModel.Store.CONTROL" Multiplicity="1" />
+    <End Role="CONTROL_PERMISO" Type="DB_BOUTIQUEModel.Store.CONTROL_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTROL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTROL_PERMISO">
+        <PropertyRef Name="CONTROLId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTROLMODULO">
+    <End Role="MODULO" Type="DB_BOUTIQUEModel.Store.MODULO" Multiplicity="1" />
+    <End Role="CONTROL" Type="DB_BOUTIQUEModel.Store.CONTROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MODULO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTROL">
+        <PropertyRef Name="MODULOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTROLUSUARIO">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <End Role="CONTROL" Type="DB_BOUTIQUEModel.Store.CONTROL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTROL">
+        <PropertyRef Name="USUARIOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTROL_PERMISOUSUARIO">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <End Role="CONTROL_PERMISO" Type="DB_BOUTIQUEModel.Store.CONTROL_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTROL_PERMISO">
+        <PropertyRef Name="USUARIOSolicitaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CONTROL_PERMISOUSUARIOAUTORIZA">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <End Role="CONTROL_PERMISO" Type="DB_BOUTIQUEModel.Store.CONTROL_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CONTROL_PERMISO">
+        <PropertyRef Name="USUARIOAutorizaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEADOESTADO">
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEADOPERSONA">
+    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="PERSONAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EMPLEADOPUESTO">
+    <End Role="PUESTO" Type="DB_BOUTIQUEModel.Store.PUESTO" Multiplicity="1" />
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="PUESTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOEMPLEADO">
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="1" />
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLEADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="EMPLEADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOESTADO">
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULO_PERMISOMODULO">
+    <End Role="MODULO" Type="DB_BOUTIQUEModel.Store.MODULO" Multiplicity="1" />
+    <End Role="MODULO_PERMISO" Type="DB_BOUTIQUEModel.Store.MODULO_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MODULO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MODULO_PERMISO">
+        <PropertyRef Name="MODULOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULOMODULOPADRE">
+    <End Role="MODULO" Type="DB_BOUTIQUEModel.Store.MODULO" Multiplicity="0..1" />
+    <End Role="MODULO1" Type="DB_BOUTIQUEModel.Store.MODULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MODULO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MODULO1">
+        <PropertyRef Name="MODULOPadreId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULO_PERMISOUSUARIO">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <End Role="MODULO_PERMISO" Type="DB_BOUTIQUEModel.Store.MODULO_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MODULO_PERMISO">
+        <PropertyRef Name="USUARIOSolicitaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULO_PERMISOUSUARIO1">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <End Role="MODULO_PERMISO" Type="DB_BOUTIQUEModel.Store.MODULO_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MODULO_PERMISO">
+        <PropertyRef Name="USUARIOAutorizaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MODULO_PERMISOUSUARIOASIGNA">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="1" />
+    <End Role="MODULO_PERMISO" Type="DB_BOUTIQUEModel.Store.MODULO_PERMISO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MODULO_PERMISO">
+        <PropertyRef Name="USUARIOAsignaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USUARIOROL">
+    <End Role="ROL" Type="DB_BOUTIQUEModel.Store.ROL" Multiplicity="1" />
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ROL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ROLId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_BOUTIQUEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CONTROL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MODULOId" Type="Int32" Nullable="false" />
+          <Property Name="USUARIOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CONTROL_PERMISO" Relationship="Self.FK_CONTROL_PERMISOCONTROL" FromRole="CONTROL" ToRole="CONTROL_PERMISO" />
+          <NavigationProperty Name="MODULO" Relationship="Self.FK_CONTROLMODULO" FromRole="CONTROL" ToRole="MODULO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_CONTROLUSUARIO" FromRole="CONTROL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="CONTROL_PERMISO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CONTROLId" Type="Int32" Nullable="false" />
+          <Property Name="USUARIOSolicitaId" Type="Int32" Nullable="false" />
+          <Property Name="USUARIOAutorizaId" Type="Int32" Nullable="false" />
+          <Property Name="Enabled" Type="Boolean" Nullable="false" />
+          <Property Name="ReadOnly" Type="Boolean" Nullable="false" />
+          <Property Name="Hide" Type="Boolean" Nullable="false" />
+          <Property Name="FechaAsignacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CONTROL" Relationship="Self.FK_CONTROL_PERMISOCONTROL" FromRole="CONTROL_PERMISO" ToRole="CONTROL" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_CONTROL_PERMISOUSUARIO" FromRole="CONTROL_PERMISO" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK_CONTROL_PERMISOUSUARIOAUTORIZA" FromRole="CONTROL_PERMISO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rfc" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+          <Property Name="PUESTOId" Type="Int32" Nullable="false" />
+          <Property Name="PERSONAId" Type="Int32" Nullable="false" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.FK_EMPLEADOESTADO" FromRole="EMPLEADO" ToRole="ESTADO" />
+          <NavigationProperty Name="PERSONA" Relationship="Self.FK_EMPLEADOPERSONA" FromRole="EMPLEADO" ToRole="PERSONA" />
+          <NavigationProperty Name="PUESTO" Relationship="Self.FK_EMPLEADOPUESTO" FromRole="EMPLEADO" ToRole="PUESTO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIOEMPLEADO" FromRole="EMPLEADO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Name="Proceso" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOESTADO" FromRole="ESTADO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIOESTADO" FromRole="ESTADO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="MODULO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ruta" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Icono" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MODULOPadreId" Type="Int32" />
+          <NavigationProperty Name="CONTROL" Relationship="Self.FK_CONTROLMODULO" FromRole="MODULO" ToRole="CONTROL" />
+          <NavigationProperty Name="MODULO_PERMISO" Relationship="Self.FK_MODULO_PERMISOMODULO" FromRole="MODULO" ToRole="MODULO_PERMISO" />
+          <NavigationProperty Name="MODULO1" Relationship="Self.FK_MODULOMODULOPADRE" FromRole="MODULO" ToRole="MODULO1" />
+          <NavigationProperty Name="MODULO2" Relationship="Self.FK_MODULOMODULOPADRE" FromRole="MODULO1" ToRole="MODULO" />
+        </EntityType>
+        <EntityType Name="MODULO_PERMISO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FechaAsignacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
+          <Property Name="MODULOId" Type="Int32" Nullable="false" />
+          <Property Name="USUARIOSolicitaId" Type="Int32" Nullable="false" />
+          <Property Name="USUARIOAutorizaId" Type="Int32" Nullable="false" />
+          <Property Name="USUARIOAsignaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="MODULO" Relationship="Self.FK_MODULO_PERMISOMODULO" FromRole="MODULO_PERMISO" ToRole="MODULO" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_MODULO_PERMISOUSUARIO" FromRole="MODULO_PERMISO" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO1" Relationship="Self.FK_MODULO_PERMISOUSUARIO1" FromRole="MODULO_PERMISO" ToRole="USUARIO" />
+          <NavigationProperty Name="USUARIO2" Relationship="Self.FK_MODULO_PERMISOUSUARIOASIGNA" FromRole="MODULO_PERMISO" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="PERSONA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombres" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ApellidoMATERNO" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOPERSONA" FromRole="PERSONA" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="PUESTO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOPUESTO" FromRole="PUESTO" ToRole="EMPLEADO" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIOROL" FromRole="ROL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Alias" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EMPLEADOId" Type="Int32" Nullable="false" />
+          <Property Name="ROLId" Type="Int32" Nullable="false" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CONTROL" Relationship="Self.FK_CONTROLUSUARIO" FromRole="USUARIO" ToRole="CONTROL" />
+          <NavigationProperty Name="CONTROL_PERMISO" Relationship="Self.FK_CONTROL_PERMISOUSUARIO" FromRole="USUARIO" ToRole="CONTROL_PERMISO" />
+          <NavigationProperty Name="CONTROL_PERMISO1" Relationship="Self.FK_CONTROL_PERMISOUSUARIOAUTORIZA" FromRole="USUARIO" ToRole="CONTROL_PERMISO" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_USUARIOEMPLEADO" FromRole="USUARIO" ToRole="EMPLEADO" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.FK_USUARIOESTADO" FromRole="USUARIO" ToRole="ESTADO" />
+          <NavigationProperty Name="MODULO_PERMISO" Relationship="Self.FK_MODULO_PERMISOUSUARIO" FromRole="USUARIO" ToRole="MODULO_PERMISO" />
+          <NavigationProperty Name="MODULO_PERMISO1" Relationship="Self.FK_MODULO_PERMISOUSUARIO1" FromRole="USUARIO" ToRole="MODULO_PERMISO" />
+          <NavigationProperty Name="MODULO_PERMISO2" Relationship="Self.FK_MODULO_PERMISOUSUARIOASIGNA" FromRole="USUARIO" ToRole="MODULO_PERMISO" />
+          <NavigationProperty Name="ROL" Relationship="Self.FK_USUARIOROL" FromRole="USUARIO" ToRole="ROL" />
+        </EntityType>
+        <Association Name="FK_CONTROL_PERMISOCONTROL">
+          <End Role="CONTROL" Type="Self.CONTROL" Multiplicity="1" />
+          <End Role="CONTROL_PERMISO" Type="Self.CONTROL_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTROL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTROL_PERMISO">
+              <PropertyRef Name="CONTROLId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTROLMODULO">
+          <End Role="MODULO" Type="Self.MODULO" Multiplicity="1" />
+          <End Role="CONTROL" Type="Self.CONTROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODULO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTROL">
+              <PropertyRef Name="MODULOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTROLUSUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="CONTROL" Type="Self.CONTROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTROL">
+              <PropertyRef Name="USUARIOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTROL_PERMISOUSUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="CONTROL_PERMISO" Type="Self.CONTROL_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTROL_PERMISO">
+              <PropertyRef Name="USUARIOSolicitaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CONTROL_PERMISOUSUARIOAUTORIZA">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="CONTROL_PERMISO" Type="Self.CONTROL_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CONTROL_PERMISO">
+              <PropertyRef Name="USUARIOAutorizaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADOESTADO">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADOPERSONA">
+          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="PERSONAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EMPLEADOPUESTO">
+          <End Role="PUESTO" Type="Self.PUESTO" Multiplicity="1" />
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PUESTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="PUESTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOEMPLEADO">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="EMPLEADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOESTADO">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODULO_PERMISOMODULO">
+          <End Role="MODULO" Type="Self.MODULO" Multiplicity="1" />
+          <End Role="MODULO_PERMISO" Type="Self.MODULO_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODULO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MODULO_PERMISO">
+              <PropertyRef Name="MODULOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODULOMODULOPADRE">
+          <End Role="MODULO" Type="Self.MODULO" Multiplicity="0..1" />
+          <End Role="MODULO1" Type="Self.MODULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODULO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MODULO1">
+              <PropertyRef Name="MODULOPadreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODULO_PERMISOUSUARIO">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="MODULO_PERMISO" Type="Self.MODULO_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MODULO_PERMISO">
+              <PropertyRef Name="USUARIOSolicitaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODULO_PERMISOUSUARIO1">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="MODULO_PERMISO" Type="Self.MODULO_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MODULO_PERMISO">
+              <PropertyRef Name="USUARIOAutorizaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MODULO_PERMISOUSUARIOASIGNA">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="MODULO_PERMISO" Type="Self.MODULO_PERMISO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MODULO_PERMISO">
+              <PropertyRef Name="USUARIOAsignaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_USUARIOROL">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROLId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_BOUTIQUEEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CONTROL" EntityType="Self.CONTROL" />
+          <EntitySet Name="CONTROL_PERMISO" EntityType="Self.CONTROL_PERMISO" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" />
+          <EntitySet Name="MODULO" EntityType="Self.MODULO" />
+          <EntitySet Name="MODULO_PERMISO" EntityType="Self.MODULO_PERMISO" />
+          <EntitySet Name="PERSONA" EntityType="Self.PERSONA" />
+          <EntitySet Name="PUESTO" EntityType="Self.PUESTO" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK_CONTROL_PERMISOCONTROL" Association="Self.FK_CONTROL_PERMISOCONTROL">
+            <End Role="CONTROL" EntitySet="CONTROL" />
+            <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTROLMODULO" Association="Self.FK_CONTROLMODULO">
+            <End Role="MODULO" EntitySet="MODULO" />
+            <End Role="CONTROL" EntitySet="CONTROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTROLUSUARIO" Association="Self.FK_CONTROLUSUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CONTROL" EntitySet="CONTROL" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTROL_PERMISOUSUARIO" Association="Self.FK_CONTROL_PERMISOUSUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CONTROL_PERMISOUSUARIOAUTORIZA" Association="Self.FK_CONTROL_PERMISOUSUARIOAUTORIZA">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADOESTADO" Association="Self.FK_EMPLEADOESTADO">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADOPERSONA" Association="Self.FK_EMPLEADOPERSONA">
+            <End Role="PERSONA" EntitySet="PERSONA" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EMPLEADOPUESTO" Association="Self.FK_EMPLEADOPUESTO">
+            <End Role="PUESTO" EntitySet="PUESTO" />
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOEMPLEADO" Association="Self.FK_USUARIOEMPLEADO">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOESTADO" Association="Self.FK_USUARIOESTADO">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODULO_PERMISOMODULO" Association="Self.FK_MODULO_PERMISOMODULO">
+            <End Role="MODULO" EntitySet="MODULO" />
+            <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODULOMODULOPADRE" Association="Self.FK_MODULOMODULOPADRE">
+            <End Role="MODULO" EntitySet="MODULO" />
+            <End Role="MODULO1" EntitySet="MODULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODULO_PERMISOUSUARIO" Association="Self.FK_MODULO_PERMISOUSUARIO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODULO_PERMISOUSUARIO1" Association="Self.FK_MODULO_PERMISOUSUARIO1">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MODULO_PERMISOUSUARIOASIGNA" Association="Self.FK_MODULO_PERMISOUSUARIOASIGNA">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_USUARIOROL" Association="Self.FK_USUARIOROL">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_BOUTIQUEModelStoreContainer" CdmEntityContainer="DB_BOUTIQUEEntities">
+    <EntitySetMapping Name="CONTROL">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.CONTROL)">
+        <MappingFragment StoreEntitySet="CONTROL">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="MODULOId" ColumnName="MODULOId" />
+          <ScalarProperty Name="USUARIOId" ColumnName="USUARIOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTROL_PERMISO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.CONTROL_PERMISO)">
+        <MappingFragment StoreEntitySet="CONTROL_PERMISO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CONTROLId" ColumnName="CONTROLId" />
+          <ScalarProperty Name="USUARIOSolicitaId" ColumnName="USUARIOSolicitaId" />
+          <ScalarProperty Name="USUARIOAutorizaId" ColumnName="USUARIOAutorizaId" />
+          <ScalarProperty Name="Enabled" ColumnName="Enabled" />
+          <ScalarProperty Name="ReadOnly" ColumnName="ReadOnly" />
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="FechaAsignacion" ColumnName="FechaAsignacion" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEADO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.EMPLEADO)">
+        <MappingFragment StoreEntitySet="EMPLEADO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Rfc" ColumnName="Rfc" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+          <ScalarProperty Name="PUESTOId" ColumnName="PUESTOId" />
+          <ScalarProperty Name="PERSONAId" ColumnName="PERSONAId" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ESTADO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.ESTADO)">
+        <MappingFragment StoreEntitySet="ESTADO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Proceso" ColumnName="Proceso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODULO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.MODULO)">
+        <MappingFragment StoreEntitySet="MODULO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+          <ScalarProperty Name="Icono" ColumnName="Icono" />
+          <ScalarProperty Name="MODULOPadreId" ColumnName="MODULOPadreId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODULO_PERMISO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.MODULO_PERMISO)">
+        <MappingFragment StoreEntitySet="MODULO_PERMISO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FechaAsignacion" ColumnName="FechaAsignacion" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
+          <ScalarProperty Name="MODULOId" ColumnName="MODULOId" />
+          <ScalarProperty Name="USUARIOSolicitaId" ColumnName="USUARIOSolicitaId" />
+          <ScalarProperty Name="USUARIOAutorizaId" ColumnName="USUARIOAutorizaId" />
+          <ScalarProperty Name="USUARIOAsignaId" ColumnName="USUARIOAsignaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONA">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.PERSONA)">
+        <MappingFragment StoreEntitySet="PERSONA">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMATERNO" ColumnName="ApellidoMATERNO" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUESTO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.PUESTO)">
+        <MappingFragment StoreEntitySet="PUESTO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ROL">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.ROL)">
+        <MappingFragment StoreEntitySet="ROL">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="IsTypeOf(DB_BOUTIQUEModel.USUARIO)">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="EMPLEADOId" ColumnName="EMPLEADOId" />
+          <ScalarProperty Name="ROLId" ColumnName="ROLId" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
