@@ -442,6 +442,7 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="35" />
     <Property Name="Tipo" Type="bit" Nullable="false" />
+    <Property Name="Baja" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="METODOPAGO">
     <Key>
@@ -1708,6 +1709,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="35" />
           <Property Name="Tipo" Type="Boolean" Nullable="false" />
+          <Property Name="Baja" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="MOVIMIENTOTIPO_MOVIMIENTO">
           <End Type="DB_BOUTIQUEModel.MOVIMIENTO" Role="MOVIMIENTO" Multiplicity="*" />
@@ -2244,6 +2246,7 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Baja" ColumnName="Baja" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
