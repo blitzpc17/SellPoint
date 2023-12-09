@@ -1,10 +1,7 @@
 ﻿using CapaDatos;
 using CapaDatos.ADO.Sistema;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaNegocios.Logicas.Sistema
 {
@@ -45,6 +42,16 @@ namespace CapaNegocios.Logicas.Sistema
             LstRol = contextoRol.Listar();  
         }
 
+        public ROL Obtener(int id)
+        {
+            return contextoRol.Obtener(id);
+        }
+
+        public void Eliminar(ROL entidad)
+        {
+            contextoRol.Eliminar(entidad);
+        }
+
 
         public bool Filtrar(int column, string termino)
         {
@@ -62,7 +69,7 @@ namespace CapaNegocios.Logicas.Sistema
 
             }
 
-            return (index > 0);
+            return (index >=0);
 
         }
 

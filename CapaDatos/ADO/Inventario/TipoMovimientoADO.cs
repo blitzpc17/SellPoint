@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaDatos.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,9 +36,20 @@ namespace CapaDatos.ADO.Inventario
             return contexto.TIPO_MOVIMIENTO.ToList();
         }
 
-        public TIPO_MOVIMIENTO Obtener(int id, bool tipo)
+        public List<clsTIPOMOVIMIENTO> ListarTipos()
         {
-            return contexto.TIPO_MOVIMIENTO.FirstOrDefault(x => x.Id == id && x.Tipo==tipo);
+            const string query = "SELECT " +
+                "Id, Nombre, (CASE WHEN Tipo = 0 THEN 'POSITIVO' ELSE 'NEGATIVO' END ) As Tipo, " +
+                "(CASE WHEN Baja=0 THEN 'INACTIVO' ELSE 'ACTIVO' END) As Activo " +
+                "FROM TIPO_MOVIMIENTO";
+            return contexto.Database.SqlQuery<clsTIPOMOVIMIENTO>(query).ToList();
         }
+
+        public TIPO_MOVIMIENTO Obtener(int id)
+        {
+            return contexto.TIPO_MOVIMIENTO.FirstOrDefault(x => x.Id == id);
+        }
+
+
     }
 }

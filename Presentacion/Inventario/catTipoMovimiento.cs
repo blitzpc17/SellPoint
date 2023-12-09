@@ -27,6 +27,7 @@ namespace Presentacion.Inventario
             InstanciarContextos();
             ListarRegistros();
             cbxTipo.SelectedIndex = 0;
+            contexto.Column = 1;
         }
 
         private void InstanciarContextos()
@@ -46,16 +47,15 @@ namespace Presentacion.Inventario
             dgvRegistros.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvRegistros.Columns[2].HeaderText = "Tipo";
             dgvRegistros.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvRegistros.Columns[3].HeaderText = "Estado";
+            dgvRegistros.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             tsTotalRegistros.Text = contexto.LstTIPO_MOVIMIENTO.Count.ToString("N0");
-
-            contexto.Column = 1;
-
         }
 
         private void ListarRegistros()
         {
             dgvRegistros.DataSource = null;
-            contexto.Listar();
+            contexto.LstTIPO_MOVIMIENTO = contexto.ListarTipos();
             dgvRegistros.DataSource = contexto.LstTIPO_MOVIMIENTO;
             Apariencias();
         }
@@ -82,7 +82,7 @@ namespace Presentacion.Inventario
 
             contexto.Guardar();
 
-            MessageBox.Show("Registro guardado correctamente.", "Aciso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro guardado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             InicializarForm();
 
         }
@@ -108,9 +108,9 @@ namespace Presentacion.Inventario
         {
             if (contexto.Filtrar(column, termino))
             {
-                contexto.indexAux = contexto.index;
-                dgvRegistros.Rows[contexto.index].Selected = true;
+                contexto.indexAux = contexto.index;          
                 dgvRegistros.FirstDisplayedScrollingRowIndex = contexto.index;
+                dgvRegistros.Rows[contexto.index].Selected = true;
             }
         }
 
@@ -150,7 +150,7 @@ namespace Presentacion.Inventario
         {
             if (dgvRegistros.DataSource == null) return;
 
-            contexto.ObjTipoMov = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value, (bool)dgvRegistros.CurrentRow.Cells[2].Value);
+            contexto.ObjTipoMov = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value);
 
             setData();
         }
@@ -168,7 +168,7 @@ namespace Presentacion.Inventario
         {
             if (dgvRegistros.DataSource == null) return;
 
-            if (MessageBox.Show("Se borrará el registro. ¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            if (MessageBox.Show("Se cambiará el estado del registro. ¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 EliminarRegistro();
                 InicializarForm();
@@ -177,10 +177,10 @@ namespace Presentacion.Inventario
 
         private void EliminarRegistro()
         {
-            contexto.ObjTipoMov = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value, (bool)dgvRegistros.CurrentRow.Cells[2].Value);
-            contexto.Eliminar(contexto.ObjTipoMov);
+            contexto.ObjTipoMov = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value);
+            contexto.ObjTipoMov.Baja = !contexto.ObjTipoMov.Baja;
             contexto.Guardar();
-            MessageBox.Show("Registro eliminado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro "+(contexto.ObjTipoMov.Baja?"ACTIVADO":"DESACTIVADO") +" correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

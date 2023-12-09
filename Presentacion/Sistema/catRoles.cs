@@ -1,14 +1,5 @@
 ﻿using CapaNegocios.Logicas.Sistema;
 using Presentacion.Utilidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Presentacion.Sistema
 {
@@ -19,7 +10,7 @@ namespace Presentacion.Sistema
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
-            WindowState = FormWindowState.Normal;
+            WindowState = FormWindowState.Normal;  
         }
 
         private void InicializarForm()
@@ -70,6 +61,8 @@ namespace Presentacion.Sistema
 
             contexto.Guardar();
 
+            MessageBox.Show("Registro guardado correctamente.", "Aciso", MessageBoxButtons.OK, MessageBoxIcon.Information );
+            InicializarForm();
 
         }
 
@@ -80,8 +73,7 @@ namespace Presentacion.Sistema
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            Guardar();
-            InicializarForm();
+            Guardar();            
         }
 
         private void catRoles_Shown(object sender, EventArgs e)
@@ -91,17 +83,12 @@ namespace Presentacion.Sistema
         }
 
         private void filtrar(int column, string termino)
-        {
+        {           
             if(contexto.Filtrar(column, termino))
             {
                 contexto.indexAux = contexto.index;
+                dgvRegistros.Rows[contexto.index].Cells[column].Selected = true;
                 dgvRegistros.FirstDisplayedScrollingRowIndex = contexto.index;
-                // dgvRegistros.Rows[contexto.indexAux].Selected = false;
-                // dgvRegistros.Rows[contexto.index].Selected = true;
-            }
-            else
-            {
-                txtNombre.Text = termino.Substring(0, termino.Length - 1);
             }
         }
 
@@ -114,11 +101,20 @@ namespace Presentacion.Sistema
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
         {
+            if (dgvRegistros.Rows.Count <= 0) return;
+
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                contexto.index = -1;
+                return;
+            }
+
             filtrar(contexto.Column, txtNombre.Text);
         }
 
         private void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (contexto.Column == e.ColumnIndex) return;
             contexto.Column = e.ColumnIndex;
             ordenar(contexto.Column);   
         }
@@ -126,6 +122,43 @@ namespace Presentacion.Sistema
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             InicializarForm();
+        }
+
+        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvRegistros.DataSource == null) return;
+
+            contexto.ObjRol = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value);
+
+            setData();
+        }
+
+        private void setData()
+        {
+            if (contexto.ObjRol != null)
+            {
+                txtNombre.Text = contexto.ObjRol.Nombre.ToString();    
+            }
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvRegistros.DataSource == null) return;
+
+            if(MessageBox.Show("Se borrará el registro. ¿Desea continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                EliminarRegistro();
+                InicializarForm();
+            }           
+            
+        }
+
+        private void EliminarRegistro()
+        {
+            contexto.ObjRol = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value);
+            contexto.Eliminar(contexto.ObjRol);
+            contexto.Guardar();
+            MessageBox.Show("Registro eliminado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

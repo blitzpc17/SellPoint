@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using CapaDatos;
+using CapaDatos.Entidades;
 
 namespace CapaNegocios.Logicas.Inventario
 {
@@ -11,8 +12,8 @@ namespace CapaNegocios.Logicas.Inventario
         private TipoMovimientoADO contextoTipoMov;
         public TIPO_MOVIMIENTO ObjTipoMov;
         
-        public List<TIPO_MOVIMIENTO> LstTIPO_MOVIMIENTO;
-        public List<TIPO_MOVIMIENTO> LstTIPO_MOVIMIENTOAux;
+        public List<clsTIPOMOVIMIENTO> LstTIPO_MOVIMIENTO;
+        public List<clsTIPOMOVIMIENTO> LstTIPO_MOVIMIENTOAux;
 
         public int index = -1;
         public int indexAux = -1;
@@ -37,21 +38,16 @@ namespace CapaNegocios.Logicas.Inventario
 
             contextoTipoMov.Guardar();
 
+        }       
+
+        public List<clsTIPOMOVIMIENTO> ListarTipos()
+        {
+            return contextoTipoMov.ListarTipos();
         }
 
-        public void Listar()
+        public TIPO_MOVIMIENTO Obtener(int id)
         {
-            LstTIPO_MOVIMIENTO = contextoTipoMov.Listar();
-        }
-
-        public TIPO_MOVIMIENTO Obtener(int id, bool tipo)
-        {
-            return contextoTipoMov.Obtener(id, tipo);
-        }
-
-        public void Eliminar(TIPO_MOVIMIENTO entidad)
-        {
-            contextoTipoMov.Eliminar(entidad);
+            return contextoTipoMov.Obtener(id);
         }
 
 
@@ -63,6 +59,14 @@ namespace CapaNegocios.Logicas.Inventario
             {
                 case 1:
                     index = LstTIPO_MOVIMIENTOAux.FindIndex(x => x.Nombre.StartsWith(termino));
+                    break;
+
+                case 2:
+                    index = LstTIPO_MOVIMIENTOAux.FindIndex(x => x.Tipo.StartsWith(termino));
+                    break;
+
+                case 3:
+                    index = LstTIPO_MOVIMIENTOAux.FindIndex(x => x.Activo.StartsWith(termino));
                     break;
 
                 default:
@@ -81,7 +85,15 @@ namespace CapaNegocios.Logicas.Inventario
             {
 
                 case 1:
-                    LstTIPO_MOVIMIENTOAux = LstTIPO_MOVIMIENTO.OrderBy(x => x.Nombre).ThenBy(x=>x.Tipo).ToList();
+                    LstTIPO_MOVIMIENTOAux = LstTIPO_MOVIMIENTO.OrderBy(x => x.Nombre).ThenBy(x=>x.Tipo).ThenBy(x=>x.Activo).ToList();
+                    break;
+
+                case 2:
+                    LstTIPO_MOVIMIENTOAux = LstTIPO_MOVIMIENTO.OrderBy(x => x.Tipo).ThenBy(x => x.Nombre).ThenBy(x=>x.Activo).ToList();
+                    break;
+
+                case 3:
+                    LstTIPO_MOVIMIENTOAux = LstTIPO_MOVIMIENTO.OrderBy(x => x.Activo).ThenBy(x=>x.Tipo).ThenBy(x => x.Nombre).ToList();
                     break;
 
                 default:
