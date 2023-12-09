@@ -16,8 +16,10 @@ namespace Presentacion.Utilidades
         {
             frm.ForeColor = Enfasis;
             frm.BackColor = Principal;
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.WindowState = FormWindowState.Normal;
 
-            foreach(Control ctrl in frm.Controls)
+            foreach (Control ctrl in frm.Controls)
             {
                 if(ctrl is GroupBox)
                 {
@@ -45,12 +47,16 @@ namespace Presentacion.Utilidades
                             {
                                 ((DataGridView)ctrlG).BackgroundColor = Secundario;
                                 ((DataGridView)ctrlG).ForeColor = Secundario;
+                                ((DataGridView)ctrlG).MultiSelect = false;
 
                                 if (((DataGridView)ctrlG).ContextMenuStrip != null)
                                 {
                                     ((DataGridView)ctrlG).ContextMenuStrip.BackColor = Secundario;
                                     ((DataGridView)ctrlG).ContextMenuStrip.ForeColor = Enfasis;
                                 }
+                            }else if(ctrlG is TextBox)
+                            {
+                                ((TextBox)ctrlG).CharacterCasing = CharacterCasing.Upper;
                             }
                         }
                     }

@@ -27,9 +27,10 @@ namespace Presentacion.Sistema
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             MDIMain mDIMain = new MDIMain();
-            this.Hide();
-            mDIMain.WindowState = FormWindowState.Maximized;    
-            mDIMain.Show();
+            Hide();
+            mDIMain.WindowState = FormWindowState.Maximized;
+            mDIMain.ShowDialog();
+            Close();
             
         }
     }

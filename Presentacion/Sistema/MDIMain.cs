@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Presentacion.Inventario;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,42 +13,10 @@ namespace Presentacion.Sistema
 {
     public partial class MDIMain : Form
     {
-        private int childFormNumber = 0;
-
         public MDIMain()
         {
             InitializeComponent();
-        }
-
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Ventana " + childFormNumber++;
-            childForm.Show();
-        }
-
-        private void OpenFile(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            openFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = openFileDialog.FileName;
-            }
-        }
-
-        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivos de texto (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
-            }
-        }
+        }       
 
         private void rOLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -108,6 +77,13 @@ namespace Presentacion.Sistema
         private void capturaYConsultaToolStripMenuItem6_Click(object sender, EventArgs e)
         {
             Modulo form = new Modulo();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void tipoMovimientosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            catTipoMovimiento form = new catTipoMovimiento();
             form.MdiParent = this;
             form.Show();
         }
