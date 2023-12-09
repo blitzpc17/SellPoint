@@ -39,8 +39,8 @@ namespace CapaDatos.ADO.Inventario
         public List<clsTIPOMOVIMIENTO> ListarTipos()
         {
             const string query = "SELECT " +
-                "Id, Nombre, (CASE WHEN Tipo = 0 THEN 'POSITIVO' ELSE 'NEGATIVO' END ) As Tipo, " +
-                "(CASE WHEN Baja=0 THEN 'INACTIVO' ELSE 'ACTIVO' END) As Activo " +
+                "Id, Nombre, (CASE WHEN Tipo = 1 THEN 'POSITIVO' ELSE 'NEGATIVO' END ) As Tipo, " +
+                "(CASE WHEN Baja=1 THEN 'INACTIVO' ELSE 'ACTIVO' END) As Activo " +
                 "FROM TIPO_MOVIMIENTO";
             return contexto.Database.SqlQuery<clsTIPOMOVIMIENTO>(query).ToList();
         }

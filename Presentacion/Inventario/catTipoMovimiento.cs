@@ -180,7 +180,7 @@ namespace Presentacion.Inventario
             contexto.ObjTipoMov = contexto.Obtener((int)dgvRegistros.CurrentRow.Cells[0].Value);
             contexto.ObjTipoMov.Baja = !contexto.ObjTipoMov.Baja;
             contexto.Guardar();
-            MessageBox.Show("Registro "+(contexto.ObjTipoMov.Baja?"ACTIVADO":"DESACTIVADO") +" correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Registro "+(contexto.ObjTipoMov.Baja?"DESACTIVADO": "ACTIVADO") +" correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

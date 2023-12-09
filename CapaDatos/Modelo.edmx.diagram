@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ee57749df61f49869bd867a7395ba09e" Name="Diagram1" ZoomLevel="66">
+      <Diagram DiagramId="ee57749df61f49869bd867a7395ba09e" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.CONTROL" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.CONTROL_PERMISO" Width="1.5" PointX="12.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.EMPLEADO" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
@@ -20,17 +20,12 @@
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_CONTROLUSUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_CONTROL_PERMISOUSUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_CONTROL_PERMISOUSUARIOAUTORIZA" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BOUTIQUEModel.FK_EMPLEADOESTADO" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BOUTIQUEModel.FK_EMPLEADOPERSONA" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BOUTIQUEModel.FK_EMPLEADOPUESTO" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_USUARIOEMPLEADO" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BOUTIQUEModel.FK_USUARIOESTADO" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULO_PERMISOMODULO" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULOMODULOPADRE" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULO_PERMISOUSUARIO" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULO_PERMISOUSUARIO1" ManuallyRouted="false" />
         <AssociationConnector Association="DB_BOUTIQUEModel.FK_MODULO_PERMISOUSUARIOASIGNA" ManuallyRouted="false" />
-        <AssociationConnector Association="DB_BOUTIQUEModel.FK_USUARIOROL" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.PRODUCTO" Width="1.5" PointX="24.75" PointY="4.5" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.PROVEEDOR" Width="1.5" PointX="22.5" PointY="1.75" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.MARCA" Width="1.5" PointX="22.5" PointY="4.875" />
@@ -71,6 +66,12 @@
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.FORMAPAGO" Width="1.5" PointX="19" PointY="12.875" />
         <AssociationConnector Association="DB_BOUTIQUEModel.VENTAFORMAPAGO" />
         <EntityTypeShape EntityType="DB_BOUTIQUEModel.VARIABLEGLOBAL" Width="1.5" PointX="9.625" PointY="0.5" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.USUARIOROL" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.USUARIOESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.EMPLEADOESTADO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.EMPLEADOPUESTO" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.USUARIOPERSONA" />
+        <AssociationConnector Association="DB_BOUTIQUEModel.EMPLEADOPERSONA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

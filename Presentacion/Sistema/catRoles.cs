@@ -35,7 +35,6 @@ namespace Presentacion.Sistema
             dgvRegistros.Columns[0].Visible = false;
             dgvRegistros.Columns[1].HeaderText = "Nombre";
             dgvRegistros.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[2].Visible = false;
             tsTotalRegistros.Text = contexto.LstRol.Count.ToString("N0");
 
             contexto.Column = 1;

@@ -51,24 +51,8 @@
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
     </AssociationSet>
-    <AssociationSet Name="FK_EMPLEADOESTADO" Association="DB_BOUTIQUEModel.Store.FK_EMPLEADOESTADO">
-      <End Role="ESTADO" EntitySet="ESTADO" />
-      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EMPLEADOPERSONA" Association="DB_BOUTIQUEModel.Store.FK_EMPLEADOPERSONA">
-      <End Role="PERSONA" EntitySet="PERSONA" />
-      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_EMPLEADOPUESTO" Association="DB_BOUTIQUEModel.Store.FK_EMPLEADOPUESTO">
-      <End Role="PUESTO" EntitySet="PUESTO" />
-      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-    </AssociationSet>
     <AssociationSet Name="FK_USUARIOEMPLEADO" Association="DB_BOUTIQUEModel.Store.FK_USUARIOEMPLEADO">
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-      <End Role="USUARIO" EntitySet="USUARIO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_USUARIOESTADO" Association="DB_BOUTIQUEModel.Store.FK_USUARIOESTADO">
-      <End Role="ESTADO" EntitySet="ESTADO" />
       <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
     <AssociationSet Name="FK_MODULO_PERMISOMODULO" Association="DB_BOUTIQUEModel.Store.FK_MODULO_PERMISOMODULO">
@@ -90,10 +74,6 @@
     <AssociationSet Name="FK_MODULO_PERMISOUSUARIOASIGNA" Association="DB_BOUTIQUEModel.Store.FK_MODULO_PERMISOUSUARIOASIGNA">
       <End Role="USUARIO" EntitySet="USUARIO" />
       <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_USUARIOROL" Association="DB_BOUTIQUEModel.Store.FK_USUARIOROL">
-      <End Role="ROL" EntitySet="ROL" />
-      <End Role="USUARIO" EntitySet="USUARIO" />
     </AssociationSet>
     <AssociationSet Name="PROVEEDORPERSONA" Association="DB_BOUTIQUEModel.Store.PROVEEDORPERSONA">
       <End Role="PROVEEDOR" EntitySet="PROVEEDOR" />
@@ -195,6 +175,30 @@
       <End Role="VENTA" EntitySet="VENTA" />
       <End Role="FORMAPAGO" EntitySet="FORMAPAGO" />
     </AssociationSet>
+    <AssociationSet Name="USUARIOROL" Association="DB_BOUTIQUEModel.Store.USUARIOROL">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ROL" EntitySet="ROL" />
+    </AssociationSet>
+    <AssociationSet Name="USUARIOESTADO" Association="DB_BOUTIQUEModel.Store.USUARIOESTADO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="EMPLEADOESTADO" Association="DB_BOUTIQUEModel.Store.EMPLEADOESTADO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
+    <AssociationSet Name="EMPLEADOPUESTO" Association="DB_BOUTIQUEModel.Store.EMPLEADOPUESTO">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="PUESTO" EntitySet="PUESTO" />
+    </AssociationSet>
+    <AssociationSet Name="USUARIOPERSONA" Association="DB_BOUTIQUEModel.Store.USUARIOPERSONA">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="PERSONA" EntitySet="PERSONA" />
+    </AssociationSet>
+    <AssociationSet Name="EMPLEADOPERSONA" Association="DB_BOUTIQUEModel.Store.EMPLEADOPERSONA">
+      <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+      <End Role="PERSONA" EntitySet="PERSONA" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CONTROL">
     <Key>
@@ -224,12 +228,11 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Rfc" Type="nvarchar" Nullable="false" MaxLength="13" />
+    <Property Name="Rfc" Type="nvarchar" Nullable="true" MaxLength="13" />
     <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
     <Property Name="ESTADOId" Type="int" Nullable="false" />
     <Property Name="PUESTOId" Type="int" Nullable="false" />
     <Property Name="PERSONAId" Type="int" Nullable="false" />
-    <Property Name="Baja" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="ESTADO">
     <Key>
@@ -296,6 +299,7 @@
     <Property Name="EMPLEADOId" Type="int" Nullable="false" />
     <Property Name="ROLId" Type="int" Nullable="false" />
     <Property Name="ESTADOId" Type="int" Nullable="false" />
+    <Property Name="PERSONAId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PRODUCTO">
     <Key>
@@ -527,42 +531,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_EMPLEADOESTADO">
-    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
-    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ESTADO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EMPLEADO">
-        <PropertyRef Name="ESTADOId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EMPLEADOPERSONA">
-    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
-    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PERSONA">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EMPLEADO">
-        <PropertyRef Name="PERSONAId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_EMPLEADOPUESTO">
-    <End Role="PUESTO" Type="DB_BOUTIQUEModel.Store.PUESTO" Multiplicity="1" />
-    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PUESTO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="EMPLEADO">
-        <PropertyRef Name="PUESTOId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_USUARIOEMPLEADO">
     <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="1" />
     <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
@@ -572,18 +540,6 @@
       </Principal>
       <Dependent Role="USUARIO">
         <PropertyRef Name="EMPLEADOId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_USUARIOESTADO">
-    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
-    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ESTADO">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="USUARIO">
-        <PropertyRef Name="ESTADOId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -644,18 +600,6 @@
       </Principal>
       <Dependent Role="MODULO_PERMISO">
         <PropertyRef Name="USUARIOAsignaId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_USUARIOROL">
-    <End Role="ROL" Type="DB_BOUTIQUEModel.Store.ROL" Multiplicity="1" />
-    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="ROL">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="USUARIO">
-        <PropertyRef Name="ROLId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -959,6 +903,78 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="USUARIOROL">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
+    <End Role="ROL" Type="DB_BOUTIQUEModel.Store.ROL" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ROL">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ROLId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="USUARIOESTADO">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EMPLEADOESTADO">
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EMPLEADOPUESTO">
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
+    <End Role="PUESTO" Type="DB_BOUTIQUEModel.Store.PUESTO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PUESTO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="PUESTOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="USUARIOPERSONA">
+    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
+    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="USUARIO">
+        <PropertyRef Name="PERSONAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EMPLEADOPERSONA">
+    <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
+    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSONA">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EMPLEADO">
+        <PropertyRef Name="PERSONAId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -997,16 +1013,15 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Rfc" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rfc" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="true" />
           <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
-          <Property Name="PUESTOId" Type="Int32" Nullable="false" />
-          <Property Name="PERSONAId" Type="Int32" Nullable="false" />
-          <Property Name="Baja" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="ESTADO" Relationship="Self.FK_EMPLEADOESTADO" FromRole="EMPLEADO" ToRole="ESTADO" />
-          <NavigationProperty Name="PERSONA" Relationship="Self.FK_EMPLEADOPERSONA" FromRole="EMPLEADO" ToRole="PERSONA" />
-          <NavigationProperty Name="PUESTO" Relationship="Self.FK_EMPLEADOPUESTO" FromRole="EMPLEADO" ToRole="PUESTO" />
           <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIOEMPLEADO" FromRole="EMPLEADO" ToRole="USUARIO" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.EMPLEADOESTADO" FromRole="EMPLEADO" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PUESTO" Relationship="DB_BOUTIQUEModel.EMPLEADOPUESTO" FromRole="EMPLEADO" ToRole="PUESTO" />
+          <Property Name="PUESTOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="DB_BOUTIQUEModel.EMPLEADOPERSONA" FromRole="EMPLEADO" ToRole="PERSONA" />
+          <Property Name="PERSONAId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ESTADO">
           <Key>
@@ -1015,8 +1030,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="Proceso" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOESTADO" FromRole="ESTADO" ToRole="EMPLEADO" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIOESTADO" FromRole="ESTADO" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="MODULO">
           <Key>
@@ -1057,7 +1070,6 @@
           <Property Name="ApellidoPaterno" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ApellidoMaterno" Type="String" MaxLength="65" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOPERSONA" FromRole="PERSONA" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="PUESTO">
           <Key>
@@ -1065,7 +1077,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_EMPLEADOPUESTO" FromRole="PUESTO" ToRole="EMPLEADO" />
         </EntityType>
         <EntityType Name="ROL">
           <Key>
@@ -1073,7 +1084,6 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="USUARIO" Relationship="Self.FK_USUARIOROL" FromRole="ROL" ToRole="USUARIO" />
         </EntityType>
         <EntityType Name="USUARIO">
           <Key>
@@ -1084,17 +1094,19 @@
           <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="EMPLEADOId" Type="Int32" Nullable="false" />
-          <Property Name="ROLId" Type="Int32" Nullable="false" />
-          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="CONTROL" Relationship="Self.FK_CONTROLUSUARIO" FromRole="USUARIO" ToRole="CONTROL" />
           <NavigationProperty Name="CONTROL_PERMISO" Relationship="Self.FK_CONTROL_PERMISOUSUARIO" FromRole="USUARIO" ToRole="CONTROL_PERMISO" />
           <NavigationProperty Name="CONTROL_PERMISO1" Relationship="Self.FK_CONTROL_PERMISOUSUARIOAUTORIZA" FromRole="USUARIO" ToRole="CONTROL_PERMISO" />
           <NavigationProperty Name="EMPLEADO" Relationship="Self.FK_USUARIOEMPLEADO" FromRole="USUARIO" ToRole="EMPLEADO" />
-          <NavigationProperty Name="ESTADO" Relationship="Self.FK_USUARIOESTADO" FromRole="USUARIO" ToRole="ESTADO" />
           <NavigationProperty Name="MODULO_PERMISO" Relationship="Self.FK_MODULO_PERMISOUSUARIO" FromRole="USUARIO" ToRole="MODULO_PERMISO" />
           <NavigationProperty Name="MODULO_PERMISO1" Relationship="Self.FK_MODULO_PERMISOUSUARIO1" FromRole="USUARIO" ToRole="MODULO_PERMISO" />
           <NavigationProperty Name="MODULO_PERMISO2" Relationship="Self.FK_MODULO_PERMISOUSUARIOASIGNA" FromRole="USUARIO" ToRole="MODULO_PERMISO" />
-          <NavigationProperty Name="ROL" Relationship="Self.FK_USUARIOROL" FromRole="USUARIO" ToRole="ROL" />
+          <NavigationProperty Name="ROL" Relationship="DB_BOUTIQUEModel.USUARIOROL" FromRole="USUARIO" ToRole="ROL" />
+          <Property Name="ROLId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.USUARIOESTADO" FromRole="USUARIO" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PERSONA" Relationship="DB_BOUTIQUEModel.USUARIOPERSONA" FromRole="USUARIO" ToRole="PERSONA" />
+          <Property Name="PERSONAId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_CONTROL_PERMISOCONTROL">
           <End Role="CONTROL" Type="Self.CONTROL" Multiplicity="1" />
@@ -1156,42 +1168,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_EMPLEADOESTADO">
-          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ESTADO">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EMPLEADO">
-              <PropertyRef Name="ESTADOId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EMPLEADOPERSONA">
-          <End Role="PERSONA" Type="Self.PERSONA" Multiplicity="1" />
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PERSONA">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EMPLEADO">
-              <PropertyRef Name="PERSONAId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_EMPLEADOPUESTO">
-          <End Role="PUESTO" Type="Self.PUESTO" Multiplicity="1" />
-          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PUESTO">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="EMPLEADO">
-              <PropertyRef Name="PUESTOId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_USUARIOEMPLEADO">
           <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="1" />
           <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
@@ -1201,18 +1177,6 @@
             </Principal>
             <Dependent Role="USUARIO">
               <PropertyRef Name="EMPLEADOId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_USUARIOESTADO">
-          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ESTADO">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="USUARIO">
-              <PropertyRef Name="ESTADOId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1276,18 +1240,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_USUARIOROL">
-          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
-          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ROL">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="USUARIO">
-              <PropertyRef Name="ROLId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DB_BOUTIQUEEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CONTROL" EntityType="Self.CONTROL" />
           <EntitySet Name="CONTROL_PERMISO" EntityType="Self.CONTROL_PERMISO" />
@@ -1319,24 +1271,8 @@
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="CONTROL_PERMISO" EntitySet="CONTROL_PERMISO" />
           </AssociationSet>
-          <AssociationSet Name="FK_EMPLEADOESTADO" Association="Self.FK_EMPLEADOESTADO">
-            <End Role="ESTADO" EntitySet="ESTADO" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EMPLEADOPERSONA" Association="Self.FK_EMPLEADOPERSONA">
-            <End Role="PERSONA" EntitySet="PERSONA" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_EMPLEADOPUESTO" Association="Self.FK_EMPLEADOPUESTO">
-            <End Role="PUESTO" EntitySet="PUESTO" />
-            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-          </AssociationSet>
           <AssociationSet Name="FK_USUARIOEMPLEADO" Association="Self.FK_USUARIOEMPLEADO">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
-            <End Role="USUARIO" EntitySet="USUARIO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_USUARIOESTADO" Association="Self.FK_USUARIOESTADO">
-            <End Role="ESTADO" EntitySet="ESTADO" />
             <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
           <AssociationSet Name="FK_MODULO_PERMISOMODULO" Association="Self.FK_MODULO_PERMISOMODULO">
@@ -1358,10 +1294,6 @@
           <AssociationSet Name="FK_MODULO_PERMISOUSUARIOASIGNA" Association="Self.FK_MODULO_PERMISOUSUARIOASIGNA">
             <End Role="USUARIO" EntitySet="USUARIO" />
             <End Role="MODULO_PERMISO" EntitySet="MODULO_PERMISO" />
-          </AssociationSet>
-          <AssociationSet Name="FK_USUARIOROL" Association="Self.FK_USUARIOROL">
-            <End Role="ROL" EntitySet="ROL" />
-            <End Role="USUARIO" EntitySet="USUARIO" />
           </AssociationSet>
           <EntitySet Name="PRODUCTO" EntityType="DB_BOUTIQUEModel.PRODUCTO" />
           <EntitySet Name="PROVEEDOR" EntityType="DB_BOUTIQUEModel.PROVEEDOR" />
@@ -1478,6 +1410,30 @@
             <End Role="FORMAPAGO" EntitySet="FORMAPAGO" />
           </AssociationSet>
           <EntitySet Name="VARIABLEGLOBAL" EntityType="DB_BOUTIQUEModel.VARIABLEGLOBAL" />
+          <AssociationSet Name="USUARIOROL" Association="DB_BOUTIQUEModel.USUARIOROL">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ROL" EntitySet="ROL" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIOESTADO" Association="DB_BOUTIQUEModel.USUARIOESTADO">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOESTADO" Association="DB_BOUTIQUEModel.EMPLEADOESTADO">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOPUESTO" Association="DB_BOUTIQUEModel.EMPLEADOPUESTO">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="PUESTO" EntitySet="PUESTO" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIOPERSONA" Association="DB_BOUTIQUEModel.USUARIOPERSONA">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOPERSONA" Association="DB_BOUTIQUEModel.EMPLEADOPERSONA">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="PERSONA" EntitySet="PERSONA" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PRODUCTO">
           <Key>
@@ -1974,6 +1930,78 @@
           <Property Name="Tipo" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="15" />
           <Property Name="Valor" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="Max" />
         </EntityType>
+        <Association Name="USUARIOROL">
+          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ROL" Role="ROL" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROLId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIOESTADO">
+          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOESTADO">
+          <End Type="DB_BOUTIQUEModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOPUESTO">
+          <End Type="DB_BOUTIQUEModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PUESTO" Role="PUESTO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PUESTO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="PUESTOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIOPERSONA">
+          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PERSONA" Role="PERSONA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="PERSONAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOPERSONA">
+          <End Type="DB_BOUTIQUEModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.PERSONA" Role="PERSONA" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="PERSONA">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EMPLEADO">
+              <PropertyRef Name="PERSONAId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2014,7 +2042,6 @@
           <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
           <ScalarProperty Name="PUESTOId" ColumnName="PUESTOId" />
           <ScalarProperty Name="PERSONAId" ColumnName="PERSONAId" />
-          <ScalarProperty Name="Baja" ColumnName="Baja" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -2088,6 +2115,7 @@
           <ScalarProperty Name="EMPLEADOId" ColumnName="EMPLEADOId" />
           <ScalarProperty Name="ROLId" ColumnName="ROLId" />
           <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
+          <ScalarProperty Name="PERSONAId" ColumnName="PERSONAId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -88,6 +88,10 @@ namespace Presentacion.Utilidades
                         {
                             ((TextBox)ctrlG).Clear();
                         }
+                        else if (ctrlG is DateTimePicker)
+                        {
+                            ((DateTimePicker)ctrlG).Value = DateTime.Now;
+                        }
                     }
                 }
             }
