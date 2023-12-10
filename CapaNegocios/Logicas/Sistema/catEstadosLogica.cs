@@ -10,7 +10,6 @@ namespace CapaNegocios.Logicas.Sistema
 {
     public class catEstadosLogica
     {
-
         private EstadoADO contexto;
         public ESTADO ObjEstado;
         public List<ESTADO> LstEstado;
