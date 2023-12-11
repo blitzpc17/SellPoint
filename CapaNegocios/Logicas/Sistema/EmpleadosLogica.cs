@@ -18,11 +18,12 @@ namespace CapaNegocios.Logicas.Sistema
 
 
         public PERSONA ObjPersona;
-        public EMPLEADO ObjEmpleado;    
+        public EMPLEADO ObjEmpleado;
+        public clsEMPLEADO ObjClsEmpleado;
         public List<ESTADO> LstEstado;
         public List<PUESTO> LstPuesto;
-        public List<clsEMPLEADO> LstEmpleado;
-        public List<clsEMPLEADO> LstEmpleadoAux;
+        public List<clsBUSEMPLEADO> LstEmpleado;
+        public List<clsBUSEMPLEADO> LstEmpleadoAux;
 
         public int index = -1;
         public int indexAux = -1;
@@ -72,10 +73,18 @@ namespace CapaNegocios.Logicas.Sistema
             LstEmpleado = contextoEmpleados.ListarEmpleados();
         }
 
-        public void Activar(int id)
+        public clsEMPLEADO ObtenerEmpleadoData(int id)
         {
-            ObjEmpleado.ESTADOId = id; 
+            return contextoEmpleados.ObtenerEmpleadoData(id);
         }
+
+
+        public void ObtenerPersonaEmpleadoData(int id)
+        {
+            ObjEmpleado = contextoEmpleados.Obtener(id);
+            ObjPersona = contextoPersona.Obtener(ObjEmpleado.PERSONAId);
+        }
+
         
 
         public bool Filtrar(int column, string termino)
@@ -84,9 +93,19 @@ namespace CapaNegocios.Logicas.Sistema
 
             switch (column)
             {
-                case 1:
-                    index = LstEmpleadoAux.FindIndex(x => x.Nombres.StartsWith(termino));
+                case 2:
+                    index = LstEmpleadoAux.FindIndex(x => x.Nombre.StartsWith(termino));
                     break;
+                case 3:
+                    index = LstEmpleadoAux.FindIndex(x => x.Rfc.ToString().StartsWith(termino));
+                    break;
+                case 4:
+                    index = LstEmpleadoAux.FindIndex(x => x.Estado.StartsWith(termino));
+                    break;
+                case 5:
+                    index = LstEmpleadoAux.FindIndex(x => x.Puesto.StartsWith(termino));
+                    break;
+                
 
                 default:
                     index = -1;
@@ -103,12 +122,21 @@ namespace CapaNegocios.Logicas.Sistema
             switch (column)
             {
 
-                case 1:
-                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Nombres).ToList();
+                case 2:
+                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Nombre).ToList();
+                    break;
+                case 3:
+                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Rfc).ToList();
+                    break;
+                case 4:
+                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Estado).ToList();
+                    break;
+                case 5:
+                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Puesto).ToList();
                     break;
 
                 default:
-                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Nombres).ToList();
+                    LstEmpleadoAux = LstEmpleado.OrderBy(x => x.Nombre).ToList();
                     break;
 
             }

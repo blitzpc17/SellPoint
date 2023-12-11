@@ -36,7 +36,12 @@ namespace CapaDatos.ADO.Sistema
             return contexto.EMPLEADO.ToList();
         }
 
-        public clsEMPLEADO Obtener(int id)
+        public EMPLEADO Obtener(int id)
+        {
+            return contexto.EMPLEADO.FirstOrDefault(x => x.Id == id);
+        }
+
+        public clsEMPLEADO ObtenerEmpleadoData(int id)
         {
             string _query = "SELECT "+
                             "EMP.Id AS EmpleadoId,"+
@@ -56,22 +61,22 @@ namespace CapaDatos.ADO.Sistema
         }
 
 
-        public List<clsEMPLEADO> ListarEmpleados()
+        public List<clsBUSEMPLEADO> ListarEmpleados()
         {
             string _query = "SELECT " +
                             "EMP.Id AS EmpleadoId, " +
+                            "PER.Id as PersonaId, "+
+                            "(PER.Nombres+' '+PER.ApellidoPaterno+' '+PER.ApellidoMaterno) as Nombre, " +
                             "EMP.Rfc, " +
                             "EMP.FechaIngreso, " +
-                            "EDO.Nombre as Estado, EDO.Id as EstadoId, " +
-                            "PUES.Nombre as Puesto, PUES.Id as PuestoId, " +
-                            "PER.Id as PersonaId, PER.Nombres, PER.ApellidoPaterno, PER.ApellidoMaterno, " +
-                            "PER.FechaNacimiento " +
+                            "EDO.Nombre as Estado, " +
+                            "PUES.Nombre as Puesto " +
                             "FROM EMPLEADO AS EMP " +
                             "JOIN ESTADO AS EDO on EMP.ESTADOId = EDO.Id " +
                             "JOIN PUESTO AS PUES on EMP.PUESTOId = PUES.Id " +
                             "JOIN PERSONA AS PER ON EMP.PERSONAId = PER.Id ";
 
-            return contexto.Database.SqlQuery<clsEMPLEADO>(_query).ToList();
+            return contexto.Database.SqlQuery<clsBUSEMPLEADO>(_query).ToList();
         }
 
 

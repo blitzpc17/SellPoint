@@ -49,6 +49,7 @@ namespace Presentacion.Sistema
             Apariencias();  
         }
 
+
         private void Guardar()
         {
             if (contexto.ObjRol == null)

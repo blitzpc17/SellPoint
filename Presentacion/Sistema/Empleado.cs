@@ -69,21 +69,27 @@ namespace Presentacion.Sistema
                 return;
             }
 
-            if (contexto.ObjEmpleado == null)
+            if (contexto.ObjClsEmpleado == null)
             {
                 contexto.InstanciarEmpleado();
             }
+            else
+            {
+                contexto.ObtenerPersonaEmpleadoData(contexto.ObjClsEmpleado.EmpleadoId);
+            }
 
-            contexto.ObjPersona.Nombres = txtNombres.Text;  
+            contexto.ObjPersona.Nombres = txtNombres.Text;
             contexto.ObjPersona.ApellidoPaterno = txtApellidoPaterno.Text;
             contexto.ObjPersona.ApellidoMaterno = txtApellidoMaterno.Text;
             contexto.ObjPersona.FechaNacimiento = dtpFechaNacimiento.Value;
 
             contexto.ObjEmpleado.ESTADOId = (int)cbxEstado.SelectedValue;
-            contexto.ObjEmpleado.PUESTOId = (int)cbxPuesto.SelectedValue;   
+            contexto.ObjEmpleado.PUESTOId = (int)cbxPuesto.SelectedValue;
             contexto.ObjEmpleado.Rfc = txtRfc.Text;
             contexto.ObjEmpleado.FechaIngreso = dtpFechaIngreso.Value;
+
             contexto.Guardar();
+
 
 
             MessageBox.Show("Registro guardado correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -94,23 +100,16 @@ namespace Presentacion.Sistema
         private void Apariencias()
         {
             dgvRegistros.Columns[0].Visible = false;
-            dgvRegistros.Columns[1].HeaderText = "RFC";
-            dgvRegistros.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[2].HeaderText = "FECHA INGRESO";
+            dgvRegistros.Columns[1].Visible = false;
+            dgvRegistros.Columns[2].HeaderText = "NOMBRE";
             dgvRegistros.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[3].HeaderText = "ESTADO";
+            dgvRegistros.Columns[3].HeaderText = "RFC";
             dgvRegistros.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[4].Visible = false;
+            dgvRegistros.Columns[4].HeaderText = "ESTADO";
+            dgvRegistros.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;     
             dgvRegistros.Columns[5].HeaderText = "PUESTO";
             dgvRegistros.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[6].Visible = false;
-            dgvRegistros.Columns[7].Visible = false;
-            dgvRegistros.Columns[8].HeaderText = "NOMBRE(S)";
-            dgvRegistros.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[8].HeaderText = "A. PATERNO";
-            dgvRegistros.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[8].HeaderText = "A. MATERNO";
-            dgvRegistros.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+           
             tsTotalRegistros.Text = contexto.LstEmpleado.Count.ToString("N0");
 
         }
@@ -120,6 +119,25 @@ namespace Presentacion.Sistema
             dgvRegistros.DataSource = null;
             contexto.Listar();
             dgvRegistros.DataSource = contexto.LstEmpleado;
+            Apariencias();
+        }
+
+        private void filtrar(int column, string termino)
+        {
+            if (contexto.Filtrar(column, termino))
+            {
+                contexto.indexAux = contexto.index;
+                dgvRegistros.Rows[contexto.index].Cells[column].Selected = true;
+                dgvRegistros.FirstDisplayedScrollingRowIndex = contexto.index;
+            }
+        }
+
+        private void ordenar(int column)
+        {
+            txtBuscar.Clear();
+            txtBuscar.Focus();
+            contexto.Ordenar(column);
+            dgvRegistros.DataSource = contexto.LstEmpleadoAux;
             Apariencias();
         }
 
@@ -146,12 +164,45 @@ namespace Presentacion.Sistema
 
         private void txtBuscar_TextChanged(object sender, EventArgs e)
         {
+            if (dgvRegistros.Rows.Count <= 0) return;
 
+            if (string.IsNullOrEmpty(txtBuscar.Text))
+            {
+                contexto.index = -1;
+                return;
+            }
+
+            filtrar(contexto.Column, txtBuscar.Text);
         }
+
+       
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dgvRegistros.DataSource == null) return;
 
+            contexto.ObjClsEmpleado = contexto.ObtenerEmpleadoData((int)dgvRegistros.CurrentRow.Cells[0].Value);
+
+            setData();
+        }
+
+        private void setData()
+        {
+            txtApellidoMaterno.Text = contexto.ObjClsEmpleado.ApellidoMaterno;
+            txtApellidoPaterno.Text = contexto.ObjClsEmpleado.ApellidoPaterno;
+            txtNombres.Text = contexto.ObjClsEmpleado.Nombres;
+            txtRfc.Text = contexto.ObjClsEmpleado.Rfc;
+            cbxEstado.SelectedValue = contexto.ObjClsEmpleado.EstadoId;
+            cbxPuesto.SelectedValue = contexto.ObjClsEmpleado.PuestoId;
+            dtpFechaIngreso.Value = contexto.ObjClsEmpleado.FechaIngreso;
+            dtpFechaNacimiento.Value = contexto.ObjClsEmpleado.FechaNacimiento;
+        }
+
+        private void dgvRegistros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (contexto.Column == e.ColumnIndex) return;
+            contexto.Column = e.ColumnIndex;
+            ordenar(contexto.Column);
         }
     }
 }

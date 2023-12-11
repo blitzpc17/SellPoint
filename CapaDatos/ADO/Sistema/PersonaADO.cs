@@ -35,5 +35,10 @@ namespace CapaDatos.ADO.Sistema
             return contexto.PERSONA.ToList();
         }
 
+        public PERSONA Obtener(int id)
+        {
+            return contexto.PERSONA.FirstOrDefault(x=>x.Id==id);
+        }
+
     }
 }
