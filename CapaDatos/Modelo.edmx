@@ -315,7 +315,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RazonSocial" Type="nchar" Nullable="false" MaxLength="380" />
+    <Property Name="RazonSocial" Type="nvarchar" Nullable="false" MaxLength="380" />
     <Property Name="Clave" Type="nchar" Nullable="false" MaxLength="5" />
     <Property Name="PERSONAIdRepresentante" Type="int" Nullable="false" />
     <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
@@ -1433,7 +1433,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="RazonSocial" Type="String" Nullable="false" Unicode="true" FixedLength="true" MaxLength="380" />
+          <Property Name="RazonSocial" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="380" />
           <Property Name="Clave" Type="String" Nullable="false" FixedLength="true" MaxLength="5" Unicode="true" />
           <NavigationProperty Name="PERSONA" Relationship="DB_BOUTIQUEModel.PROVEEDORPERSONA" FromRole="PROVEEDOR" ToRole="PERSONA" />
           <Property Name="PERSONAIdRepresentante" Type="Int32" Nullable="false" />
