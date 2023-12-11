@@ -70,7 +70,6 @@
         <AssociationConnector Association="DB_BOUTIQUEModel.USUARIOESTADO" />
         <AssociationConnector Association="DB_BOUTIQUEModel.EMPLEADOESTADO" />
         <AssociationConnector Association="DB_BOUTIQUEModel.EMPLEADOPUESTO" />
-        <AssociationConnector Association="DB_BOUTIQUEModel.USUARIOPERSONA" />
         <AssociationConnector Association="DB_BOUTIQUEModel.EMPLEADOPERSONA" />
       </Diagram>
     </edmx:Diagrams>

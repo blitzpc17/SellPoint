@@ -191,10 +191,6 @@
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
       <End Role="PUESTO" EntitySet="PUESTO" />
     </AssociationSet>
-    <AssociationSet Name="USUARIOPERSONA" Association="DB_BOUTIQUEModel.Store.USUARIOPERSONA">
-      <End Role="USUARIO" EntitySet="USUARIO" />
-      <End Role="PERSONA" EntitySet="PERSONA" />
-    </AssociationSet>
     <AssociationSet Name="EMPLEADOPERSONA" Association="DB_BOUTIQUEModel.Store.EMPLEADOPERSONA">
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
       <End Role="PERSONA" EntitySet="PERSONA" />
@@ -299,7 +295,6 @@
     <Property Name="EMPLEADOId" Type="int" Nullable="false" />
     <Property Name="ROLId" Type="int" Nullable="false" />
     <Property Name="ESTADOId" Type="int" Nullable="false" />
-    <Property Name="PERSONAId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="PRODUCTO">
     <Key>
@@ -951,18 +946,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="USUARIOPERSONA">
-    <End Role="USUARIO" Type="DB_BOUTIQUEModel.Store.USUARIO" Multiplicity="*" />
-    <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="PERSONA">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="USUARIO">
-        <PropertyRef Name="PERSONAId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="EMPLEADOPERSONA">
     <End Role="EMPLEADO" Type="DB_BOUTIQUEModel.Store.EMPLEADO" Multiplicity="*" />
     <End Role="PERSONA" Type="DB_BOUTIQUEModel.Store.PERSONA" Multiplicity="1" />
@@ -1105,8 +1088,6 @@
           <Property Name="ROLId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.USUARIOESTADO" FromRole="USUARIO" ToRole="ESTADO" />
           <Property Name="ESTADOId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="PERSONA" Relationship="DB_BOUTIQUEModel.USUARIOPERSONA" FromRole="USUARIO" ToRole="PERSONA" />
-          <Property Name="PERSONAId" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_CONTROL_PERMISOCONTROL">
           <End Role="CONTROL" Type="Self.CONTROL" Multiplicity="1" />
@@ -1425,10 +1406,6 @@
           <AssociationSet Name="EMPLEADOPUESTO" Association="DB_BOUTIQUEModel.EMPLEADOPUESTO">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="PUESTO" EntitySet="PUESTO" />
-          </AssociationSet>
-          <AssociationSet Name="USUARIOPERSONA" Association="DB_BOUTIQUEModel.USUARIOPERSONA">
-            <End Role="USUARIO" EntitySet="USUARIO" />
-            <End Role="PERSONA" EntitySet="PERSONA" />
           </AssociationSet>
           <AssociationSet Name="EMPLEADOPERSONA" Association="DB_BOUTIQUEModel.EMPLEADOPERSONA">
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
@@ -1978,18 +1955,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="USUARIOPERSONA">
-          <End Type="DB_BOUTIQUEModel.USUARIO" Role="USUARIO" Multiplicity="*" />
-          <End Type="DB_BOUTIQUEModel.PERSONA" Role="PERSONA" Multiplicity="1" />
-          <ReferentialConstraint>
-            <Principal Role="PERSONA">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="USUARIO">
-              <PropertyRef Name="PERSONAId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="EMPLEADOPERSONA">
           <End Type="DB_BOUTIQUEModel.EMPLEADO" Role="EMPLEADO" Multiplicity="*" />
           <End Type="DB_BOUTIQUEModel.PERSONA" Role="PERSONA" Multiplicity="1" />
@@ -2115,7 +2080,6 @@
           <ScalarProperty Name="EMPLEADOId" ColumnName="EMPLEADOId" />
           <ScalarProperty Name="ROLId" ColumnName="ROLId" />
           <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
-          <ScalarProperty Name="PERSONAId" ColumnName="PERSONAId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
