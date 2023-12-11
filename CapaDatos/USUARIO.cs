@@ -36,10 +36,10 @@ namespace CapaDatos
         public virtual ICollection<CONTROL_PERMISO> CONTROL_PERMISO { get; set; }
         public virtual ICollection<CONTROL_PERMISO> CONTROL_PERMISO1 { get; set; }
         public virtual EMPLEADO EMPLEADO { get; set; }
-        public virtual ESTADO ESTADO { get; set; }
         public virtual ICollection<MODULO_PERMISO> MODULO_PERMISO { get; set; }
         public virtual ICollection<MODULO_PERMISO> MODULO_PERMISO1 { get; set; }
         public virtual ICollection<MODULO_PERMISO> MODULO_PERMISO2 { get; set; }
         public virtual ROL ROL { get; set; }
+        public virtual ESTADO ESTADO { get; set; }
     }
 }

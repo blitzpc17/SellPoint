@@ -30,16 +30,16 @@
         {
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSeleccionar = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.dgvRegistros = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tsTotalRegistros = new System.Windows.Forms.ToolStripLabel();
-            this.dgvRegistros = new System.Windows.Forms.DataGridView();
-            this.groupBox1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).BeginInit();
+            this.toolStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -68,35 +68,24 @@
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
-            // groupBox1
+            // dgvRegistros
             // 
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtBuscar);
-            this.groupBox1.Controls.Add(this.toolStrip1);
-            this.groupBox1.Controls.Add(this.dgvRegistros);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(750, 341);
-            this.groupBox1.TabIndex = 12;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Búsqueda";
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(200, 22);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(115, 23);
-            this.label9.TabIndex = 91;
-            this.label9.Text = "Buscar:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Location = new System.Drawing.Point(321, 22);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(225, 23);
-            this.txtBuscar.TabIndex = 92;
-            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            this.dgvRegistros.AllowUserToAddRows = false;
+            this.dgvRegistros.AllowUserToDeleteRows = false;
+            this.dgvRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistros.Location = new System.Drawing.Point(15, 63);
+            this.dgvRegistros.Name = "dgvRegistros";
+            this.dgvRegistros.ReadOnly = true;
+            this.dgvRegistros.RowHeadersVisible = false;
+            this.dgvRegistros.RowTemplate.Height = 25;
+            this.dgvRegistros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRegistros.Size = new System.Drawing.Size(722, 234);
+            this.dgvRegistros.TabIndex = 3;
+            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
+            this.dgvRegistros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellDoubleClick);
             // 
             // toolStrip1
             // 
@@ -122,24 +111,35 @@
             this.tsTotalRegistros.Size = new System.Drawing.Size(13, 22);
             this.tsTotalRegistros.Text = "0";
             // 
-            // dgvRegistros
+            // txtBuscar
             // 
-            this.dgvRegistros.AllowUserToAddRows = false;
-            this.dgvRegistros.AllowUserToDeleteRows = false;
-            this.dgvRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvRegistros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRegistros.Location = new System.Drawing.Point(15, 63);
-            this.dgvRegistros.Name = "dgvRegistros";
-            this.dgvRegistros.ReadOnly = true;
-            this.dgvRegistros.RowHeadersVisible = false;
-            this.dgvRegistros.RowTemplate.Height = 25;
-            this.dgvRegistros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRegistros.Size = new System.Drawing.Size(722, 234);
-            this.dgvRegistros.TabIndex = 3;
-            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
-            this.dgvRegistros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellDoubleClick);
+            this.txtBuscar.Location = new System.Drawing.Point(321, 22);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(225, 23);
+            this.txtBuscar.TabIndex = 92;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(200, 22);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(115, 23);
+            this.label9.TabIndex = 91;
+            this.label9.Text = "Buscar:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtBuscar);
+            this.groupBox1.Controls.Add(this.toolStrip1);
+            this.groupBox1.Controls.Add(this.dgvRegistros);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(750, 341);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Búsqueda";
             // 
             // busEMPLEADOS
             // 
@@ -153,11 +153,11 @@
             this.Text = "Búsqueda - Empleados";
             this.Load += new System.EventHandler(this.busEMPLEADOS_Load);
             this.Shown += new System.EventHandler(this.busEMPLEADOS_Shown);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistros)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -166,12 +166,12 @@
 
         private Button btnCancelar;
         private Button btnSeleccionar;
-        private GroupBox groupBox1;
         private DataGridView dgvRegistros;
         private ToolStrip toolStrip1;
         private ToolStripLabel toolStripLabel1;
         private ToolStripLabel tsTotalRegistros;
-        private Label label9;
         private TextBox txtBuscar;
+        private Label label9;
+        private GroupBox groupBox1;
     }
 }

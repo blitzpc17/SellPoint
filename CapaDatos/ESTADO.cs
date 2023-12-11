@@ -14,17 +14,8 @@ namespace CapaDatos
     
     public partial class ESTADO
     {
-        public ESTADO()
-        {
-            this.EMPLEADO = new HashSet<EMPLEADO>();
-            this.USUARIO = new HashSet<USUARIO>();
-        }
-    
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Proceso { get; set; }
-    
-        public virtual ICollection<EMPLEADO> EMPLEADO { get; set; }
-        public virtual ICollection<USUARIO> USUARIO { get; set; }
     }
 }

@@ -12,9 +12,10 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class PUESTO
+    public partial class IMPUESTO
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public decimal Porcentaje { get; set; }
     }
 }

@@ -61,7 +61,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ADO\Compra\ProveedorADO.cs" />
+    <Compile Include="ADO\Inventario\TipoMovimientoADO.cs" />
+    <Compile Include="ADO\Sistema\EmpleadosADO.cs" />
+    <Compile Include="ADO\Sistema\EstadoADO.cs" />
+    <Compile Include="ADO\Sistema\PersonaADO.cs" />
+    <Compile Include="ADO\Sistema\PuestosADO.cs" />
     <Compile Include="ADO\Sistema\RolesADO.cs" />
+    <Compile Include="ADO\Sistema\UsuariosADO.cs" />
+    <Compile Include="ADO\Venta\FormasPagoADO.cs" />
+    <Compile Include="ADO\Venta\MetodoPagoADO.cs" />
+    <Compile Include="CLIENTE.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="CONTROL.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -71,7 +83,24 @@
     <Compile Include="EMPLEADO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entidades\clsBUSEMPLEADO.cs" />
+    <Compile Include="Entidades\clsEMPLEADO.cs" />
+    <Compile Include="Entidades\clsPROVEEDOR.cs" />
+    <Compile Include="Entidades\clsTIPOMOVIMIENTO.cs" />
+    <Compile Include="Entidades\clsUSUARIO.cs" />
     <Compile Include="ESTADO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FORMAPAGO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IMPUESTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MARCA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="METODOPAGO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelo.Context.cs">
@@ -95,17 +124,47 @@
     <Compile Include="MODULO_PERMISO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="MOVIMIENTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDENCOMPRA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ORDENCOMPRA_PARTIDA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="PERSONA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="PRODUCTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PRODUCTO_IMPUESTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PROVEEDOR.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="PUESTO.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="ROL.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="TIPO_MOVIMIENTO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="USUARIO.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VARIABLEGLOBAL.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VENTA.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VENTA_PARTIDA.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
   </ItemGroup>

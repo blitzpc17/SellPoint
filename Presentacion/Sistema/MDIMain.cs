@@ -1,4 +1,5 @@
-﻿using Presentacion.Inventario;
+﻿using Presentacion.Compras;
+using Presentacion.Inventario;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -84,6 +85,13 @@ namespace Presentacion.Sistema
         private void tipoMovimientosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             catTipoMovimiento form = new catTipoMovimiento();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void capturaYConsultaToolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            Proveedores form = new Proveedores();
             form.MdiParent = this;
             form.Show();
         }

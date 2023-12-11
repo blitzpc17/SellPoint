@@ -12,23 +12,21 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class EMPLEADO
+    public partial class ORDENCOMPRA
     {
-        public EMPLEADO()
-        {
-            this.USUARIO = new HashSet<USUARIO>();
-        }
-    
         public int Id { get; set; }
-        public string Rfc { get; set; }
-        public System.DateTime FechaIngreso { get; set; }
+        public System.DateTime FechaEmision { get; set; }
+        public int USUARIOIdGenero { get; set; }
+        public int PROVEEDORId { get; set; }
+        public int MARCAId { get; set; }
+        public decimal Subtotal { get; set; }
+        public decimal Impuestos { get; set; }
+        public decimal Total { get; set; }
         public int ESTADOId { get; set; }
-        public int PUESTOId { get; set; }
-        public int PERSONAId { get; set; }
     
-        public virtual ICollection<USUARIO> USUARIO { get; set; }
+        public virtual USUARIO USUARIO { get; set; }
+        public virtual PROVEEDOR PROVEEDOR { get; set; }
+        public virtual MARCA MARCA { get; set; }
         public virtual ESTADO ESTADO { get; set; }
-        public virtual PUESTO PUESTO { get; set; }
-        public virtual PERSONA PERSONA { get; set; }
     }
 }

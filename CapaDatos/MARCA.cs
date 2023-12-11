@@ -12,9 +12,16 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class PUESTO
+    public partial class MARCA
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public string Clave { get; set; }
+        public int PROVEEDORId { get; set; }
+        public string FechaRegistro { get; set; }
+        public int ESTADOId { get; set; }
+    
+        public virtual PROVEEDOR PROVEEDOR { get; set; }
+        public virtual ESTADO ESTADO { get; set; }
     }
 }

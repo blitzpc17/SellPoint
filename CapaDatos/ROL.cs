@@ -14,14 +14,7 @@ namespace CapaDatos
     
     public partial class ROL
     {
-        public ROL()
-        {
-            this.USUARIO = new HashSet<USUARIO>();
-        }
-    
         public int Id { get; set; }
         public string Nombre { get; set; }
-    
-        public virtual ICollection<USUARIO> USUARIO { get; set; }
     }
 }

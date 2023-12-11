@@ -14,17 +14,10 @@ namespace CapaDatos
     
     public partial class PERSONA
     {
-        public PERSONA()
-        {
-            this.EMPLEADO = new HashSet<EMPLEADO>();
-        }
-    
         public int Id { get; set; }
         public string Nombres { get; set; }
         public string ApellidoPaterno { get; set; }
-        public string ApellidoMATERNO { get; set; }
+        public string ApellidoMaterno { get; set; }
         public System.DateTime FechaNacimiento { get; set; }
-    
-        public virtual ICollection<EMPLEADO> EMPLEADO { get; set; }
     }
 }

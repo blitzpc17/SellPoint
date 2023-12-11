@@ -12,9 +12,19 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class PUESTO
+    public partial class ORDENCOMPRA_PARTIDA
     {
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public int PRODUCTOId { get; set; }
+        public int ORDENCOMPRAId { get; set; }
+        public decimal Precio { get; set; }
+        public decimal Impuesto { get; set; }
+        public decimal Cantidad { get; set; }
+        public decimal Monto { get; set; }
+        public decimal Total { get; set; }
+        public bool Baja { get; set; }
+    
+        public virtual PRODUCTO PRODUCTO { get; set; }
+        public virtual ORDENCOMPRA ORDENCOMPRA { get; set; }
     }
 }

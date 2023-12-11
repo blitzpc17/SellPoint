@@ -44,7 +44,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Logicas\Busquedas\BusquedaEmpleadosLogica.cs" />
+    <Compile Include="Logicas\Compras\ProveedoresLogica.cs" />
+    <Compile Include="Logicas\Inventario\TipoMovimientoLogica.cs" />
+    <Compile Include="Logicas\Sistema\catEstadosLogica.cs" />
+    <Compile Include="Logicas\Sistema\catPuestosLogica.cs" />
     <Compile Include="Logicas\Sistema\catRolesLogica.cs" />
+    <Compile Include="Logicas\Sistema\EmpleadosLogica.cs" />
+    <Compile Include="Logicas\Sistema\UsuarioLogica.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,5 +63,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

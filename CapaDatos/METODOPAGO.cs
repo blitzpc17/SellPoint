@@ -12,7 +12,7 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class PUESTO
+    public partial class METODOPAGO
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

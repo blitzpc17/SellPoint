@@ -225,5 +225,10 @@ namespace Presentacion.Sistema
         {
             Modificar();
         }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

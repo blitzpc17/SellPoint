@@ -12,9 +12,14 @@ namespace CapaDatos
     using System;
     using System.Collections.Generic;
     
-    public partial class PUESTO
+    public partial class PRODUCTO_IMPUESTO
     {
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public int PRODUCTOId { get; set; }
+        public int IMPUESTOId { get; set; }
+        public bool Baja { get; set; }
+    
+        public virtual IMPUESTO IMPUESTO { get; set; }
+        public virtual PRODUCTO PRODUCTO { get; set; }
     }
 }
