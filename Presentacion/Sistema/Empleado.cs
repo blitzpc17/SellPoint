@@ -63,7 +63,7 @@ namespace Presentacion.Sistema
                 return;
             }
 
-            if (cbxEstado.SelectedIndex == -1)
+            if (cbxPuesto.SelectedIndex == -1)
             {
                 MessageBox.Show("El campo PUESTO es OBLIGATORIO.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
