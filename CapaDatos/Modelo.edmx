@@ -329,7 +329,7 @@
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PROVEEDORId" Type="int" Nullable="false" />
-    <Property Name="FechaRegistro" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="ESTADOId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="ORDENCOMPRA">
@@ -1450,7 +1450,7 @@
           <Property Name="Clave" Type="String" Nullable="false" />
           <NavigationProperty Name="PROVEEDOR" Relationship="DB_BOUTIQUEModel.MARCAPROVEEDOR" FromRole="MARCA" ToRole="PROVEEDOR" />
           <Property Name="PROVEEDORId" Type="Int32" Nullable="false" />
-          <Property Name="FechaRegistro" Type="String" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.MARCAESTADO" FromRole="MARCA" ToRole="ESTADO" />
           <Property Name="ESTADOId" Type="Int32" Nullable="false" />
         </EntityType>
