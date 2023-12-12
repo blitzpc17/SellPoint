@@ -1,5 +1,6 @@
 ﻿using Presentacion.Compras;
 using Presentacion.Inventario;
+using Presentacion.Ventas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -99,6 +100,27 @@ namespace Presentacion.Sistema
         private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Marcas form = new Marcas();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void formaDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            catFormaPago form = new catFormaPago();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void métodoDePagoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            catMetodoPago form = new catMetodoPago();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void impuestosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            catImpuestos form = new catImpuestos();
             form.MdiParent = this;
             form.Show();
         }

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.ADO.Venta
 {
-    public class FormasPagoADO
+    public class FormaPagoADO
     {
         private DB_BOUTIQUEEntities contexto;
 
-        public FormasPagoADO()
+        public FormaPagoADO()
         {
             contexto = new DB_BOUTIQUEEntities();
         }
