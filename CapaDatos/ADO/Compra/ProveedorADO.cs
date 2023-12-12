@@ -44,11 +44,24 @@ namespace CapaDatos.ADO.Compra
         public List<clsPROVEEDOR> ListarProveedores()
         {
             string _query = "SELECT " +
-                            "PROV.Id, PROV.Clave,  PROV.RazonSocial, EDO.Nombre as Estado " +
+                            "PROV.Id, PROV.Clave,  PROV.RazonSocial, EDO.Nombre as Estado, EDO.Id as EstadoId " +
                             "FROM PROVEEDOR AS PROV " +                          
                             "JOIN ESTADO AS EDO ON PROV.ESTADOId = EDO.Id";
 
             return contexto.Database.SqlQuery<clsPROVEEDOR>(_query).ToList();
         }
+
+        public clsPROVEEDOR ObtenerProveedor(int id)
+        {
+            string _query = "SELECT " +
+                            "PROV.Id, PROV.Clave,  PROV.RazonSocial, EDO.Nombre as Estado, EDO.Id as EstadoId " +
+                            "FROM PROVEEDOR AS PROV " +
+                            "JOIN ESTADO AS EDO ON PROV.ESTADOId = EDO.Id " +
+                            "WHERE PROV.Id="+id;
+
+            return contexto.Database.SqlQuery<clsPROVEEDOR>(_query).FirstOrDefault();
+        }
+
+
     }
 }

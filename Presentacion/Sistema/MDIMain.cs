@@ -95,5 +95,12 @@ namespace Presentacion.Sistema
             form.MdiParent = this;
             form.Show();
         }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Marcas form = new Marcas();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

@@ -70,6 +70,7 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(225, 23);
             this.txtBuscar.TabIndex = 92;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
             // 
             // toolStrip1
             // 
@@ -111,6 +112,8 @@
             this.dgvRegistros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegistros.Size = new System.Drawing.Size(722, 234);
             this.dgvRegistros.TabIndex = 3;
+            this.dgvRegistros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellClick);
+            this.dgvRegistros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvRegistros_CellDoubleClick);
             // 
             // btnCancelar
             // 
@@ -123,6 +126,7 @@
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "     Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnSeleccionar
             // 
@@ -136,6 +140,7 @@
             this.btnSeleccionar.TabIndex = 13;
             this.btnSeleccionar.Text = "     Seleccinar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // busPROVEEDORES
             // 
@@ -147,6 +152,8 @@
             this.Controls.Add(this.btnSeleccionar);
             this.Name = "busPROVEEDORES";
             this.Text = "Búsqueda - Proveedores";
+            this.Load += new System.EventHandler(this.busPROVEEDORES_Load);
+            this.Shown += new System.EventHandler(this.busPROVEEDORES_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

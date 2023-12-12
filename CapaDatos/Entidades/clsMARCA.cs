@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace CapaDatos.Entidades
 {
-    public class clsPROVEEDOR
+    public class clsMARCA
     {
         public int Id { get; set; }
         public string Clave { get; set; }
-        public string RazonSocial { get; set; }
+        public string Marca { get; set; }
+        public string Proveedor { get; set; }
         public string Estado { get; set; }
         public int EstadoId { get; set; }
+
 
     }
 }

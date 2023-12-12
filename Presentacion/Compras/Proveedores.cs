@@ -92,6 +92,7 @@ namespace Presentacion.Compras
             dgvRegistros.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvRegistros.Columns[3].HeaderText = "ESTADO";
             dgvRegistros.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvRegistros.Columns[4].Visible = false;
 
 
             tsTotalRegistros.Text = contexto.LstProveedor.Count.ToString("N0");

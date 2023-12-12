@@ -51,6 +51,9 @@
             this.cAPTURAYCONSULTAToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hISTORIALOCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.capturaYConsultaToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iNVENTARIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mOVIMIENTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cONSULTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,9 +66,6 @@
             this.hISTORIALVENTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cLIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cAPTURAYCONSULTAToolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.capturaYConsultaToolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,6 +255,29 @@
             this.hISTORIALOCToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.hISTORIALOCToolStripMenuItem.Text = "HISTORIAL OC";
             // 
+            // pROVEEDORESToolStripMenuItem
+            // 
+            this.pROVEEDORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.capturaYConsultaToolStripMenuItem7,
+            this.marcasToolStripMenuItem});
+            this.pROVEEDORESToolStripMenuItem.Name = "pROVEEDORESToolStripMenuItem";
+            this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pROVEEDORESToolStripMenuItem.Text = "PROVEEDORES";
+            // 
+            // capturaYConsultaToolStripMenuItem7
+            // 
+            this.capturaYConsultaToolStripMenuItem7.Name = "capturaYConsultaToolStripMenuItem7";
+            this.capturaYConsultaToolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
+            this.capturaYConsultaToolStripMenuItem7.Text = "Captura y Consulta";
+            this.capturaYConsultaToolStripMenuItem7.Click += new System.EventHandler(this.capturaYConsultaToolStripMenuItem7_Click);
+            // 
+            // marcasToolStripMenuItem
+            // 
+            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.marcasToolStripMenuItem.Text = "Marcas";
+            this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
+            // 
             // iNVENTARIOSToolStripMenuItem
             // 
             this.iNVENTARIOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -344,28 +367,6 @@
             this.cAPTURAYCONSULTAToolStripMenuItem5.Name = "cAPTURAYCONSULTAToolStripMenuItem5";
             this.cAPTURAYCONSULTAToolStripMenuItem5.Size = new System.Drawing.Size(197, 22);
             this.cAPTURAYCONSULTAToolStripMenuItem5.Text = "CAPTURA Y CONSULTA";
-            // 
-            // pROVEEDORESToolStripMenuItem
-            // 
-            this.pROVEEDORESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.capturaYConsultaToolStripMenuItem7,
-            this.marcasToolStripMenuItem});
-            this.pROVEEDORESToolStripMenuItem.Name = "pROVEEDORESToolStripMenuItem";
-            this.pROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pROVEEDORESToolStripMenuItem.Text = "PROVEEDORES";
-            // 
-            // capturaYConsultaToolStripMenuItem7
-            // 
-            this.capturaYConsultaToolStripMenuItem7.Name = "capturaYConsultaToolStripMenuItem7";
-            this.capturaYConsultaToolStripMenuItem7.Size = new System.Drawing.Size(180, 22);
-            this.capturaYConsultaToolStripMenuItem7.Text = "Captura y Consulta";
-            this.capturaYConsultaToolStripMenuItem7.Click += new System.EventHandler(this.capturaYConsultaToolStripMenuItem7_Click);
-            // 
-            // marcasToolStripMenuItem
-            // 
-            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.marcasToolStripMenuItem.Text = "Marcas";
             // 
             // MDIMain
             // 
