@@ -327,7 +327,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Clave" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Clave" Type="nvarchar" Nullable="false" MaxLength="100" />
     <Property Name="PROVEEDORId" Type="int" Nullable="false" />
     <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
     <Property Name="ESTADOId" Type="int" Nullable="false" />
@@ -1447,7 +1447,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" Nullable="false" />
-          <Property Name="Clave" Type="String" Nullable="false" />
+          <Property Name="Clave" Type="String" Nullable="false" FixedLength="false" MaxLength="100" />
           <NavigationProperty Name="PROVEEDOR" Relationship="DB_BOUTIQUEModel.MARCAPROVEEDOR" FromRole="MARCA" ToRole="PROVEEDOR" />
           <Property Name="PROVEEDORId" Type="Int32" Nullable="false" />
           <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
