@@ -195,6 +195,10 @@
       <End Role="EMPLEADO" EntitySet="EMPLEADO" />
       <End Role="PERSONA" EntitySet="PERSONA" />
     </AssociationSet>
+    <AssociationSet Name="CLIENTEESTADO" Association="DB_BOUTIQUEModel.Store.CLIENTEESTADO">
+      <End Role="CLIENTE" EntitySet="CLIENTE" />
+      <End Role="ESTADO" EntitySet="ESTADO" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CONTROL">
     <Key>
@@ -387,6 +391,7 @@
     <Property Name="RFC" Type="nvarchar" Nullable="false" MaxLength="13" />
     <Property Name="RazonSocial" Type="nvarchar" Nullable="false" MaxLength="255" />
     <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+    <Property Name="ESTADOId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="MOVIMIENTO">
     <Key>
@@ -958,6 +963,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="CLIENTEESTADO">
+    <End Role="CLIENTE" Type="DB_BOUTIQUEModel.Store.CLIENTE" Multiplicity="*" />
+    <End Role="ESTADO" Type="DB_BOUTIQUEModel.Store.ESTADO" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ESTADO">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CLIENTE">
+        <PropertyRef Name="ESTADOId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -1411,6 +1428,10 @@
             <End Role="EMPLEADO" EntitySet="EMPLEADO" />
             <End Role="PERSONA" EntitySet="PERSONA" />
           </AssociationSet>
+          <AssociationSet Name="CLIENTEESTADO" Association="DB_BOUTIQUEModel.CLIENTEESTADO">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="ESTADO" EntitySet="ESTADO" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="PRODUCTO">
           <Key>
@@ -1521,6 +1542,8 @@
           <Property Name="RFC" Type="String" Nullable="false" Unicode="true" FixedLength="false" MaxLength="13" />
           <Property Name="RazonSocial" Type="String" Nullable="false" FixedLength="false" MaxLength="255" />
           <Property Name="FechaRegistro" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="ESTADO" Relationship="DB_BOUTIQUEModel.CLIENTEESTADO" FromRole="CLIENTE" ToRole="ESTADO" />
+          <Property Name="ESTADOId" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="MOVIMIENTO">
           <Key>
@@ -1967,6 +1990,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="CLIENTEESTADO">
+          <End Type="DB_BOUTIQUEModel.CLIENTE" Role="CLIENTE" Multiplicity="*" />
+          <End Type="DB_BOUTIQUEModel.ESTADO" Role="ESTADO" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="ESTADOId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2179,6 +2214,7 @@
           <ScalarProperty Name="RFC" ColumnName="RFC" />
           <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
           <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="ESTADOId" ColumnName="ESTADOId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
