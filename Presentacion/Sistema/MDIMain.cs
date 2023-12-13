@@ -131,5 +131,40 @@ namespace Presentacion.Sistema
             form.MdiParent = this;
             form.Show();
         }
+
+        private void cAPTURAYCONSULTAToolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            formClientes form = new formClientes();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void cAPTURAYCONSULTAToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            formVenta form = new formVenta();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void cAPTURAYCONSULTAToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            formOrdenCompra form = new formOrdenCompra();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void hISTORIALVENTAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            repVenta form = new repVenta();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void hISTORIALOCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            repCompras form = new repCompras();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

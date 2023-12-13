@@ -1,6 +1,6 @@
 ﻿namespace Presentacion.Busquedas
 {
-    partial class busPRODUCTOS
+    partial class busVENTA
     {
         /// <summary>
         /// Required designer variable.
@@ -51,7 +51,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(750, 341);
-            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Búsqueda";
             // 
@@ -120,7 +120,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(652, 359);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 40);
-            this.btnCancelar.TabIndex = 20;
+            this.btnCancelar.TabIndex = 23;
             this.btnCancelar.Text = "     Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
@@ -133,11 +133,11 @@
             this.btnSeleccionar.Name = "btnSeleccionar";
             this.btnSeleccionar.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.btnSeleccionar.Size = new System.Drawing.Size(110, 40);
-            this.btnSeleccionar.TabIndex = 19;
+            this.btnSeleccionar.TabIndex = 22;
             this.btnSeleccionar.Text = "     Seleccinar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             // 
-            // busPRODUCTOS
+            // busVENTA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,8 +147,9 @@
             this.Controls.Add(this.btnSeleccionar);
             this.MaximumSize = new System.Drawing.Size(790, 450);
             this.MinimumSize = new System.Drawing.Size(790, 450);
-            this.Name = "busPRODUCTOS";
-            this.Text = "Búsqueda - Productos";
+            this.Name = "busVENTA";
+            this.Text = "Búsqueda - Ventas";
+            this.Shown += new System.EventHandler(this.busVENTA_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

@@ -1,6 +1,6 @@
 ﻿namespace Presentacion.Busquedas
 {
-    partial class busPRODUCTOS
+    partial class busMODULOS
     {
         /// <summary>
         /// Required designer variable.
@@ -137,7 +137,7 @@
             this.btnSeleccionar.Text = "     Seleccinar";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
             // 
-            // busPRODUCTOS
+            // busMODULOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,8 +147,10 @@
             this.Controls.Add(this.btnSeleccionar);
             this.MaximumSize = new System.Drawing.Size(790, 450);
             this.MinimumSize = new System.Drawing.Size(790, 450);
-            this.Name = "busPRODUCTOS";
-            this.Text = "Búsqueda - Productos";
+            this.Name = "busMODULOS";
+            this.Text = "Búsqueda - Módulos";
+            this.Load += new System.EventHandler(this.busMODULOS_Load);
+            this.Shown += new System.EventHandler(this.busMODULOS_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);

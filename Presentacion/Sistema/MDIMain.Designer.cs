@@ -245,6 +245,7 @@
             this.cAPTURAYCONSULTAToolStripMenuItem1.Name = "cAPTURAYCONSULTAToolStripMenuItem1";
             this.cAPTURAYCONSULTAToolStripMenuItem1.Size = new System.Drawing.Size(197, 22);
             this.cAPTURAYCONSULTAToolStripMenuItem1.Text = "CAPTURA Y CONSULTA";
+            this.cAPTURAYCONSULTAToolStripMenuItem1.Click += new System.EventHandler(this.cAPTURAYCONSULTAToolStripMenuItem1_Click);
             // 
             // rEPORTESToolStripMenuItem
             // 
@@ -257,8 +258,9 @@
             // hISTORIALOCToolStripMenuItem
             // 
             this.hISTORIALOCToolStripMenuItem.Name = "hISTORIALOCToolStripMenuItem";
-            this.hISTORIALOCToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.hISTORIALOCToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hISTORIALOCToolStripMenuItem.Text = "HISTORIAL OC";
+            this.hISTORIALOCToolStripMenuItem.Click += new System.EventHandler(this.hISTORIALOCToolStripMenuItem_Click);
             // 
             // pROVEEDORESToolStripMenuItem
             // 
@@ -337,7 +339,7 @@
             this.vENTASToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cAPTURAYCONSULTAToolStripMenuItem2});
             this.vENTASToolStripMenuItem.Name = "vENTASToolStripMenuItem";
-            this.vENTASToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.vENTASToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vENTASToolStripMenuItem.Text = "VENTAS";
             // 
             // cAPTURAYCONSULTAToolStripMenuItem2
@@ -345,27 +347,29 @@
             this.cAPTURAYCONSULTAToolStripMenuItem2.Name = "cAPTURAYCONSULTAToolStripMenuItem2";
             this.cAPTURAYCONSULTAToolStripMenuItem2.Size = new System.Drawing.Size(197, 22);
             this.cAPTURAYCONSULTAToolStripMenuItem2.Text = "CAPTURA Y CONSULTA";
+            this.cAPTURAYCONSULTAToolStripMenuItem2.Click += new System.EventHandler(this.cAPTURAYCONSULTAToolStripMenuItem2_Click);
             // 
             // rEPORTESToolStripMenuItem1
             // 
             this.rEPORTESToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.hISTORIALVENTAToolStripMenuItem});
             this.rEPORTESToolStripMenuItem1.Name = "rEPORTESToolStripMenuItem1";
-            this.rEPORTESToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+            this.rEPORTESToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.rEPORTESToolStripMenuItem1.Text = "REPORTES";
             // 
             // hISTORIALVENTAToolStripMenuItem
             // 
             this.hISTORIALVENTAToolStripMenuItem.Name = "hISTORIALVENTAToolStripMenuItem";
-            this.hISTORIALVENTAToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.hISTORIALVENTAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hISTORIALVENTAToolStripMenuItem.Text = "HISTORIAL VENTA";
+            this.hISTORIALVENTAToolStripMenuItem.Click += new System.EventHandler(this.hISTORIALVENTAToolStripMenuItem_Click);
             // 
             // cLIENTESToolStripMenuItem
             // 
             this.cLIENTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cAPTURAYCONSULTAToolStripMenuItem5});
             this.cLIENTESToolStripMenuItem.Name = "cLIENTESToolStripMenuItem";
-            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.cLIENTESToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cLIENTESToolStripMenuItem.Text = "CLIENTES";
             // 
             // cAPTURAYCONSULTAToolStripMenuItem5
@@ -373,6 +377,7 @@
             this.cAPTURAYCONSULTAToolStripMenuItem5.Name = "cAPTURAYCONSULTAToolStripMenuItem5";
             this.cAPTURAYCONSULTAToolStripMenuItem5.Size = new System.Drawing.Size(197, 22);
             this.cAPTURAYCONSULTAToolStripMenuItem5.Text = "CAPTURA Y CONSULTA";
+            this.cAPTURAYCONSULTAToolStripMenuItem5.Click += new System.EventHandler(this.cAPTURAYCONSULTAToolStripMenuItem5_Click);
             // 
             // cÁTALOGOSToolStripMenuItem1
             // 
@@ -381,27 +386,27 @@
             this.métodoDePagoToolStripMenuItem,
             this.impuestosToolStripMenuItem});
             this.cÁTALOGOSToolStripMenuItem1.Name = "cÁTALOGOSToolStripMenuItem1";
-            this.cÁTALOGOSToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+            this.cÁTALOGOSToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.cÁTALOGOSToolStripMenuItem1.Text = "CÁTALOGOS";
             // 
             // formaDePagoToolStripMenuItem
             // 
             this.formaDePagoToolStripMenuItem.Name = "formaDePagoToolStripMenuItem";
-            this.formaDePagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.formaDePagoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.formaDePagoToolStripMenuItem.Text = "Forma de pago";
             this.formaDePagoToolStripMenuItem.Click += new System.EventHandler(this.formaDePagoToolStripMenuItem_Click);
             // 
             // métodoDePagoToolStripMenuItem
             // 
             this.métodoDePagoToolStripMenuItem.Name = "métodoDePagoToolStripMenuItem";
-            this.métodoDePagoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.métodoDePagoToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.métodoDePagoToolStripMenuItem.Text = "Método de pago";
             this.métodoDePagoToolStripMenuItem.Click += new System.EventHandler(this.métodoDePagoToolStripMenuItem_Click);
             // 
             // impuestosToolStripMenuItem
             // 
             this.impuestosToolStripMenuItem.Name = "impuestosToolStripMenuItem";
-            this.impuestosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.impuestosToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.impuestosToolStripMenuItem.Text = "Impuestos";
             this.impuestosToolStripMenuItem.Click += new System.EventHandler(this.impuestosToolStripMenuItem_Click);
             // 
