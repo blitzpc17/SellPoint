@@ -47,7 +47,7 @@ namespace CapaNegocios.Logicas.Sistema
         public void ListarCatalogos()
         {
             LstPuesto = contextoPuesto.Listar();
-            LstEstado = contextoEstado.Listar();  
+            LstEstado = contextoEstado.Listar().Where(x=>x.Proceso=="EMPLEADO").ToList();  
         }
 
         public void Guardar()
