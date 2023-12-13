@@ -124,5 +124,12 @@ namespace Presentacion.Sistema
             form.MdiParent = this;
             form.Show();
         }
+
+        private void cAPTURAYCONSULTAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Productos form = new Productos();
+            form.MdiParent = this;
+            form.Show();
+        }
     }
 }

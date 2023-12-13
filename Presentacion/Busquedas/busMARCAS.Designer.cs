@@ -151,7 +151,8 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnSeleccionar);
             this.Name = "busMARCAS";
-            this.Text = "busMARCAS";
+            this.Text = "Búsqueda - Marcas";
+            this.Load += new System.EventHandler(this.busMARCAS_Load);
             this.Shown += new System.EventHandler(this.busMARCAS_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

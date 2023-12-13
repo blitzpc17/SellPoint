@@ -59,16 +59,15 @@ namespace Presentacion.Busquedas
         private void Apariencias()
         {
             dgvRegistros.Columns[0].Visible = false;
-            dgvRegistros.Columns[1].Visible = false;
-            dgvRegistros.Columns[2].HeaderText = "CLAVE";
+            dgvRegistros.Columns[1].HeaderText = "CLAVE";
+            dgvRegistros.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvRegistros.Columns[2].HeaderText = "MARCA";
             dgvRegistros.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[3].HeaderText = "MARCA";
+            dgvRegistros.Columns[3].HeaderText = "PROVEEDOR";
             dgvRegistros.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[4].HeaderText = "PROVEEDOR";
+            dgvRegistros.Columns[4].HeaderText = "ESTADO";
             dgvRegistros.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[5].HeaderText = "ESTADO";
-            dgvRegistros.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvRegistros.Columns[6].Visible = false;
+            dgvRegistros.Columns[5].Visible = false;
 
             tsTotalRegistros.Text = contexto.LstMarca.Count.ToString("N0");
 
@@ -98,7 +97,7 @@ namespace Presentacion.Busquedas
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            InicializarForm();
+            Close();
         }
 
         private void dgvRegistros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -120,6 +119,11 @@ namespace Presentacion.Busquedas
         {
             ThemeConfig.ThemeControls(this);
             this.MaximizeBox = false;
+        }
+
+        private void busMARCAS_Load(object sender, EventArgs e)
+        {
+            InicializarForm();
         }
     }
 }
